@@ -109,7 +109,65 @@ a:hover { text-decoration: underline; }
 .footer-menu { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 0.5rem; }
 .footer p { margin: 0; }
 
-/* ---- page-specific sections are appended below by later tasks ---- */
+/* CV: same rules as the printed CV, the accent is a line, not a fill */
+.cv-header { margin-bottom: 1.5rem; }
+.cv-name { font-size: 2rem; color: var(--accent); line-height: 1.1; margin: 0; }
+.cv-role { font-size: 1.15rem; margin: 0.25rem 0 0; }
+.cv-contact { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0.5rem 0 0; }
+.cv-contact a { color: inherit; }
+.cv-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+
+.cv section { margin-top: 1.75rem; }
+.cv h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.3rem;
+  margin: 0 0 0.75rem;
+}
+.cv h3, .cv h4 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; margin: 0; }
+.company { font-weight: 400; }
+
+.skills div { margin-bottom: 0.3rem; }
+
+.entry { margin-bottom: 1.25rem; break-inside: avoid; }
+.entry-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.dates, .year {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.qualifier { font-size: 0.9rem; font-style: italic; color: var(--text-muted); margin-top: 0.1rem; }
+.sub-role { margin: 0.6rem 0 0 1rem; }
+
+.cv ul { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+.cv li { position: relative; padding-left: 1rem; margin-bottom: 0.3rem; }
+.cv li::before {
+  content: "";
+  position: absolute; left: 0; top: 0.6em;
+  width: 5px; height: 5px;
+  background: var(--accent);
+}
+
+.item { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.3rem; }
+.muted { color: var(--text-muted); font-size: 0.9rem; }
+
+@media print {
+  @page { size: A4; margin: 14mm; }
+  .skip-link, .navbar, .footer, .cv-actions { display: none; }
+  body {
+    background: #fff; color: #000;
+    font-size: 10pt; line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .main { max-width: none; padding: 0; }
+  .cv-contact a { text-decoration: none; }
+}
 
 /* Mobile */
 @media (max-width: 700px) {
@@ -117,6 +175,7 @@ a:hover { text-decoration: underline; }
   .navbar { padding: 0 1rem; }
   .navbar-menu { gap: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
+  .entry-line, .item { flex-direction: column; gap: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
