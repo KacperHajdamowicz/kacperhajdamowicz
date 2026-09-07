@@ -9,6 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 LINK = re.compile(r'(?:href|src)="([^"#]+)(?:#[^"]*)?"')
+# Comments hold example markup (see blog/_template.html); those are not real links.
+COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 SKIP = ("http://", "https://", "mailto:", "data:")
 
 
@@ -18,7 +20,8 @@ def main() -> int:
     for page in ROOT.rglob("*.html"):
         if ".git" in page.parts:
             continue
-        for target in LINK.findall(page.read_text(encoding="utf-8")):
+        markup = COMMENT.sub("", page.read_text(encoding="utf-8"))
+        for target in LINK.findall(markup):
             if target.startswith(SKIP):
                 continue
             checked += 1

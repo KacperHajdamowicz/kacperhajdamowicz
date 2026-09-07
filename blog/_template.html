@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog | Kacper Hajdamowicz</title>
-  <meta name="description" content="Notatki o Power Platform, automatyzacji i AI w firmach.">
+  <!-- 1. Title and description: shown in the browser tab and in search results. -->
+  <title>POST TITLE | Kacper Hajdamowicz</title>
+  <meta name="description" content="ONE-SENTENCE SUMMARY">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F4FD8'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='18' font-weight='700' fill='white' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,16 +24,15 @@
 </header>
 
 <main class="main" id="main">
-  <h1>Blog</h1>
-  <p class="lead">Notatki o Power Platform, automatyzacji i AI w firmach. Krótko i konkretnie.</p>
-  <ul class="posts">
-    <li>
-      <a class="post" href="2026-09-strona-w-html-i-css.html">
-        <time datetime="2026-09">wrzesień 2026</time>
-        <span>Strona osobista w czystym HTML i CSS</span>
-      </a>
-    </li>
-  </ul>
+  <a class="back-link" href="./">Wróć do bloga</a>
+  <article class="article">
+    <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the Polish month and year. -->
+    <h1>POST TITLE</h1>
+    <p class="post-meta"><time datetime="2026-09">wrzesień 2026</time></p>
+
+    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
+    <p>First paragraph.</p>
+  </article>
 </main>
 
 <footer class="footer">
@@ -43,5 +43,9 @@
   </nav>
   <p>Kacper Hajdamowicz, Wrocław. Ta strona to czysty HTML i CSS.</p>
 </footer>
+
+<!-- 4. Save as blog/YYYY-MM-slug.html (no leading underscore).
+     5. Add the post to the top of the list in blog/index.html and in index.html ("Ostatnie wpisy", max 4 items).
+     6. Run: python check_links.py -->
 </body>
 </html>
