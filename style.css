@@ -136,7 +136,7 @@ a:hover { text-decoration: underline; }
   width: 250px; height: 250px;
   object-fit: cover;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 999px;
   background: var(--bg-card);
 }
 .hero-bubble {
