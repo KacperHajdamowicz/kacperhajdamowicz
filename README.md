@@ -23,7 +23,7 @@ Treść: `cv/index.html`. PDF: podmień `cv/Kacper_Hajdamowicz_CV.pdf`, nazwa be
 
 ## Zdjęcie
 
-`photo.jpg` w katalogu głównym, kwadrat, minimum 500x500 px. Nazwa bez zmian. Teraz leży tam szary kafel zastępczy.
+`avatar.jpg` w katalogu głównym, kwadrat, minimum 500x500 px. Nazwa bez zmian.
 
 ## Kolory i kroje
 
