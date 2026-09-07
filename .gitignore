@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# local scratch, drafts, notes
+notes/
+scratch/
+*.local
+*.local.*

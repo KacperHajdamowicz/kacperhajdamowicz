@@ -1,47 +1,7 @@
-# Strona osobista
+# kacperhajdamowicz.com
 
-Czysty HTML i CSS. Bez buildu, bez zależności.
+My personal site: a landing page, my CV and a blog.
 
-## Podgląd
-
-Podwójne kliknięcie w `index.html` działa. Wersja bliższa produkcji:
-
-    python -m http.server 8080
-
-i `http://localhost:8080/`.
-
-## Nowy wpis na blogu
-
-1. Skopiuj `blog/_template.html` do `blog/RRRR-MM-slug.html` (slug po angielsku, bez polskich znaków, bez podkreślnika na początku).
-2. Uzupełnij komentarze 1-3 w pliku: tytuł, opis, datę, treść.
-3. Dopisz wiersz na górze listy w `blog/index.html` i w `index.html` (sekcja „Latest posts", maksymalnie 4 pozycje; starsze usuwaj tylko z `index.html`).
-
-Treść strony jest po angielsku — tytuły, daty („September 2026") i slugi też.
-Na liście stoi teraz `2026-09-placeholder.html`, zwykła zaślepka; skasuj ją,
-gdy pojawi się pierwszy prawdziwy wpis.
-4. `python check_links.py` musi wypisać `OK`.
-
-## CV
-
-Treść: `cv/index.html`. PDF: podmień `cv/Kacper_Hajdamowicz_CV.pdf`, nazwa bez zmian. Ctrl+P na stronie CV daje wersję do druku bez paska bocznego.
-
-## Zdjęcie
-
-`avatar.jpg` w katalogu głównym, kwadrat, minimum 500x500 px. Nazwa bez zmian.
-
-## Kolory i kroje
-
-Kolory: wszystkie na górze `style.css`, w `:root`. Nic innego nie trzeba
-ruszać. Uwaga na jedną rzecz: żółty `--accent` jest do wypełnień (przyciski,
-zakreślenia, kreski), a `--accent-ink` do tekstu — czysty żółty jako litery
-na kremowym tle jest nieczytelny.
-
-Krój: IBM Plex Mono z Google Fonts. Adres jest w `<head>` każdej z pięciu
-stron, a nazwa rodziny w `--font-body` w `style.css` — podmiana wymaga obu
-miejsc.
-
-## Publikacja
-
-GitHub Pages: Settings, Pages, „Deploy from a branch", gałąź `main`, katalog `/ (root)`. Każdy `git push` na `main` publikuje stronę po około minucie. Plik `.nojekyll` musi zostać.
-
-Własna domena: dodaj plik `CNAME` z samą nazwą domeny i wskaż DNS zgodnie z dokumentacją GitHub Pages. Linki na stronie są względne, więc nic więcej nie zmieniasz.
+Plain HTML and CSS. No framework, no build step, no dependencies. One
+stylesheet, IBM Plex Mono from Google Fonts, and a small Python script that
+checks the internal links. Hosted on GitHub Pages.
