@@ -1,0 +1,124 @@
+/* Kacper Hajdamowicz, personal site. One stylesheet, no build step.
+   Colours live only in :root; tune them here and nowhere else.
+   Shapes: buttons are pills, cards and the photo use --radius, inline code 6px. */
+
+:root {
+  --bg: #F7F8FA;
+  --bg-card: #FFFFFF;
+  --text: #1B1F24;
+  --text-muted: #5B6470;
+  --border: #E1E5EA;
+  --accent: #1F4FD8;
+  --accent-hover: #173FB0;
+
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Bricolage Grotesque", var(--font-body);
+
+  --radius: 12px;
+  --content-width: 760px;
+  --navbar-height: 60px;
+  --transition: 0.15s ease;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0 0 1rem; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 20;
+  padding: 0.5rem 1rem; border-radius: 999px;
+  background: var(--accent); color: #fff;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Header: sticky, one line, 60px */
+.navbar {
+  position: sticky; top: 0; z-index: 10;
+  height: var(--navbar-height);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.brand { font-family: var(--font-heading); font-weight: 600; color: var(--text); white-space: nowrap; }
+.brand:hover { color: var(--accent); text-decoration: none; }
+.navbar-menu { display: flex; align-items: center; gap: 1.25rem; }
+.navbar-menu a { color: var(--text); }
+.navbar-menu a:hover { color: var(--accent); text-decoration: none; }
+
+/* Layout */
+.main { max-width: var(--content-width); margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+.section { margin-top: 3rem; }
+.heading-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.5rem; }
+.heading-row h2 { margin: 0; }
+.lead { font-size: 1.15rem; color: var(--text-muted); max-width: 32em; }
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.button:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; text-decoration: none; }
+.button:active { transform: translateY(1px); }
+.button.secondary { background: transparent; border-color: var(--border); color: var(--text); }
+.button.secondary:hover { background: var(--bg-card); border-color: var(--text-muted); color: var(--text); }
+.button.small { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 1.5rem 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+.footer-menu { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 0.5rem; }
+.footer p { margin: 0; }
+
+/* ---- page-specific sections are appended below by later tasks ---- */
+
+/* Mobile */
+@media (max-width: 700px) {
+  h1 { font-size: 1.8rem; }
+  .navbar { padding: 0 1rem; }
+  .navbar-menu { gap: 1rem; }
+  .main { padding: 1.5rem 1rem 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
