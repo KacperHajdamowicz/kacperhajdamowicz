@@ -19,7 +19,7 @@ i `http://localhost:8080/`.
 
 ## CV
 
-Treść: `cv/index.html`. PDF: podmień `cv/Kacper_Hajdamowicz_CV.pdf`, nazwa bez zmian. Ctrl+P na stronie CV daje wersję do druku bez nagłówka i stopki.
+Treść: `cv/index.html`. PDF: podmień `cv/Kacper_Hajdamowicz_CV.pdf`, nazwa bez zmian. Ctrl+P na stronie CV daje wersję do druku bez paska bocznego.
 
 ## Zdjęcie
 

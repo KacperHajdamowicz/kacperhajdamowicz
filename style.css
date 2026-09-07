@@ -20,7 +20,7 @@
 
   --radius: 12px;
   --content-width: 760px;
-  --navbar-height: 60px;
+  --sidebar-width: 240px;
   --transition: 0.15s ease;
 }
 
@@ -30,6 +30,7 @@ html { color-scheme: dark; }
 
 body {
   margin: 0;
+  padding-left: var(--sidebar-width);
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -55,26 +56,32 @@ a:hover { text-decoration: underline; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .skip-link {
-  position: absolute; left: 1rem; top: -3rem; z-index: 20;
+  position: absolute; left: calc(var(--sidebar-width) + 1rem); top: -3rem; z-index: 20;
   padding: 0.5rem 1rem; border-radius: 999px;
   background: var(--accent); color: var(--on-accent);
 }
 .skip-link:focus { top: 1rem; }
 
-/* Header: sticky, one line, 60px */
-.navbar {
-  position: sticky; top: 0; z-index: 10;
-  height: var(--navbar-height);
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: 0 1.5rem;
+/* Sidebar: fixed on the left, the page scrolls past it.
+   The social links and the note sit at the bottom (margin-top: auto). */
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0; z-index: 10;
+  width: var(--sidebar-width);
+  display: flex; flex-direction: column;
+  padding: 1.5rem;
+  overflow-y: auto;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
 }
-.brand { font-family: var(--font-heading); font-weight: 600; color: var(--text); white-space: nowrap; }
+.brand { font-family: var(--font-heading); font-weight: 600; color: var(--text); }
 .brand:hover { color: var(--accent); text-decoration: none; }
-.navbar-menu { display: flex; align-items: center; gap: 1.25rem; }
-.navbar-menu a { color: var(--text); }
-.navbar-menu a:hover { color: var(--accent); text-decoration: none; }
+.sidebar-nav, .sidebar-social { display: flex; flex-direction: column; gap: 0.4rem; }
+.sidebar-nav { margin-top: 1.5rem; }
+.sidebar-social { margin-top: auto; padding-top: 1.5rem; font-size: 0.9rem; }
+.sidebar-nav a, .sidebar-social a { color: var(--text); }
+.sidebar-nav a[aria-current] { color: var(--accent); font-weight: 600; }
+.sidebar-nav a:hover, .sidebar-social a:hover { color: var(--accent); text-decoration: none; }
+.sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); }
 
 /* Layout */
 .main { max-width: var(--content-width); margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
@@ -101,17 +108,6 @@ a:hover { text-decoration: underline; }
 .button.secondary { background: transparent; border-color: var(--border); color: var(--text); }
 .button.secondary:hover { background: var(--bg-card); border-color: var(--text-muted); color: var(--text); }
 .button.small { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
-
-/* Footer */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 1.25rem 1.5rem 2rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  text-align: center;
-}
-.footer-menu { display: flex; justify-content: center; gap: 1.25rem; margin-bottom: 0.5rem; }
-.footer p { margin: 0; }
 
 /* Landing: hero with timeline and photo */
 .hero { display: grid; grid-template-columns: 1fr 250px; gap: 2.5rem; align-items: start; }
@@ -261,8 +257,9 @@ a:hover { text-decoration: underline; }
     --text-muted: #555555;
     --border: #CCCCCC;
   }
-  .skip-link, .navbar, .footer, .cv-actions { display: none; }
+  .skip-link, .sidebar, .cv-actions { display: none; }
   body {
+    padding-left: 0;
     background: #fff; color: #000;
     font-size: 10pt; line-height: 1.35;
     -webkit-print-color-adjust: exact;
@@ -275,8 +272,17 @@ a:hover { text-decoration: underline; }
 /* Mobile */
 @media (max-width: 700px) {
   h1 { font-size: 1.8rem; }
-  .navbar { padding: 0 1rem; }
-  .navbar-menu { gap: 1rem; }
+  body { padding-left: 0; }
+  .sidebar {
+    position: static; width: auto;
+    flex-direction: row; flex-wrap: wrap; align-items: center;
+    gap: 0.5rem 1.25rem;
+    padding: 1rem;
+    border-right: 0; border-bottom: 1px solid var(--border);
+  }
+  .sidebar-nav, .sidebar-social { flex-direction: row; gap: 1.25rem; margin-top: 0; padding-top: 0; }
+  .sidebar-note { flex-basis: 100%; margin-top: 0; }
+  .skip-link { left: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
   .entry-line, .item { flex-direction: column; gap: 0; }
   .post { flex-direction: column; gap: 0.1rem; }
