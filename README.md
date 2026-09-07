@@ -12,9 +12,13 @@ i `http://localhost:8080/`.
 
 ## Nowy wpis na blogu
 
-1. Skopiuj `blog/_template.html` do `blog/RRRR-MM-slug.html` (bez polskich znaków w nazwie, bez podkreślnika na początku).
+1. Skopiuj `blog/_template.html` do `blog/RRRR-MM-slug.html` (slug po angielsku, bez polskich znaków, bez podkreślnika na początku).
 2. Uzupełnij komentarze 1-3 w pliku: tytuł, opis, datę, treść.
-3. Dopisz wiersz na górze listy w `blog/index.html` i w `index.html` (sekcja „Ostatnie wpisy", maksymalnie 4 pozycje; starsze usuwaj tylko z `index.html`).
+3. Dopisz wiersz na górze listy w `blog/index.html` i w `index.html` (sekcja „Latest posts", maksymalnie 4 pozycje; starsze usuwaj tylko z `index.html`).
+
+Treść strony jest po angielsku — tytuły, daty („September 2026") i slugi też.
+Na liście stoi teraz `2026-09-placeholder.html`, zwykła zaślepka; skasuj ją,
+gdy pojawi się pierwszy prawdziwy wpis.
 4. `python check_links.py` musi wypisać `OK`.
 
 ## CV
