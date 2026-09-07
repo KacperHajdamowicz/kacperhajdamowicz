@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 1. Title and description: shown in the browser tab and in search results. -->
+  <title>Power Platform This Week: September 1-7, 2026 | Kacper Hajdamowicz</title>
+  <meta name="description" content="The canvas authoring agent plugin goes GA, PPCC 2026 is positioned as the roadmap event, and a strong multi-agent Copilot Studio pattern lands. What changed for Power Platform this week.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F1D302'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='700' fill='%2326241F' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="sidebar">
+  <a class="brand" href="../">Kacper Hajdamowicz</a>
+  <nav class="sidebar-nav" aria-label="Main">
+    <a href="./" aria-current="true">Blog</a>
+    <a href="../cv/">CV</a>
+    <a href="https://calendly.com/hajdamowiczkacper/30min" target="_blank" rel="noopener">Book a call</a>
+  </nav>
+  <nav class="sidebar-social" aria-label="Links">
+    <a href="https://www.linkedin.com/in/kacper-hajdamowicz-b1167520b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/KacperHajdamowicz" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:hajdamowiczkacper@outlook.com">Email</a>
+  </nav>
+  <p class="sidebar-note">Kacper Hajdamowicz, Wrocław. This site is plain HTML and CSS.</p>
+</header>
+
+<main class="main" id="main">
+  <a class="back-link" href="./">Back to the blog</a>
+  <article class="article">
+    <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the month and year. -->
+    <h1>Power Platform This Week: September 1-7, 2026</h1>
+    <p class="post-meta"><time datetime="2026-09">September 2026</time></p>
+
+    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
+    <p>The canvas authoring agent plugin for Power Apps went generally available, which makes it the most useful single change this week for anyone building canvas apps with an agent. Microsoft also started priming Power Platform Community Conference (PPCC) as the forums and sessions where the roadmap gets talked through, and community content on multi-agent Copilot Studio patterns is climbing in quality. Here is what changed, what shipped, and what you should do with it.</p>
+    
+    <h2>Canvas authoring agent plugin is now GA</h2>
+    <p>The canvas authoring agent plugin in Power Apps moved from preview to generally available on September 1. It lets a maker describe a change in natural language and have the agent edit the canvas app. Anyone who has been building canvas apps with Copilot can now treat the plugin as a stable part of the workflow instead of a beta. The concrete difference is that the plugin works inside the existing apps you already maintain, not just greenfield ones. Teams that kept people off preview builds now have a supported path into agent-driven canvas editing. If you run a center of excellence, this is the point at which agent-assisted canvas authoring becomes a thing you document and govern rather than a thing you trial.</p>
+    <p class="post-meta"><em><a href="https://www.microsoft.com/en-us/power-platform/blog/power-apps/turbocharge-your-canvas-development-with-the-canvas-authoring-agent-plugin-now-generally-available/">https://www.microsoft.com/en-us/power-platform/blog/power-apps/turbocharge-your-canvas-development-with-the-canvas-authoring-agent-plugin-now-generally-available/</a></em></p>
+    
+    <h2>PPCC 2026 is the roadmap event for the platform</h2>
+    <p>Microsoft is framing Power Platform Community Conference 2026 as the place where AI and business processes meet, and published a preview of what the sessions cover. This is squarely an announcements-to-come event rather than a product change, but for developers and admins it is the calendar item that matters. If you track the Power Platform, the practical move is to note the dates and treat the session list as the early signal of where the platform heads in the coming quarters. The 2026 event emphasis is on agentic workflows and tying AI into existing processes, which aligns with where the past year of releases has pointed.</p>
+    <p class="post-meta"><em><a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/09/03/ppcc-2026-bringing-ai-and-your-business-processes-together/">https://www.microsoft.com/en-us/microsoft-365/blog/2026/09/03/ppcc-2026-bringing-ai-and-your-business-processes-together/</a></em></p>
+    
+    <h2>Multi-agent workflows in Copilot Studio</h2>
+    <p>Matthew Devaney published a walkthrough that splits one task across three Copilot Studio agents, each with a narrower focus, and runs them in parallel. It is a practical pattern for teams that have hit the limit of what a single agent handles. The design is worth copying if you are already in Copilot Studio: it trades one broad agent for several narrow ones, which tends to raise output quality and lets parts of the work happen at the same time. Community content of this kind is a useful reference when you are scoping your own agent architecture.</p>
+    <p class="post-meta"><em><a href="https://www.matthewdevaney.com/video-multi-agent-workflows-in-copilot-studio/">https://www.matthewdevaney.com/video-multi-agent-workflows-in-copilot-studio/</a></em></p>
+    
+    <p>If you were looking for a month-defining platform announcement this week, there was not one. The GA of the canvas plugin is the real change on the books, and the rest is roadmap positioning and community technique. That is a normal week.</p>
+  </article>
+</main>
+
+
+<!-- 4. Save as blog/YYYY-MM-slug.html (no leading underscore).
+     5. Add the post to the top of the list in blog/index.html and in index.html ("Latest posts", max 4 items).
+     6. Run: python check_links.py -->
+</body>
+</html>
