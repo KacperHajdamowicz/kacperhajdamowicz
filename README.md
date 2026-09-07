@@ -27,7 +27,14 @@ Treść: `cv/index.html`. PDF: podmień `cv/Kacper_Hajdamowicz_CV.pdf`, nazwa be
 
 ## Kolory i kroje
 
-Wszystko na górze `style.css`, w `:root`. Nic innego nie trzeba ruszać.
+Kolory: wszystkie na górze `style.css`, w `:root`. Nic innego nie trzeba
+ruszać. Uwaga na jedną rzecz: żółty `--accent` jest do wypełnień (przyciski,
+zakreślenia, kreski), a `--accent-ink` do tekstu — czysty żółty jako litery
+na kremowym tle jest nieczytelny.
+
+Krój: IBM Plex Mono z Google Fonts. Adres jest w `<head>` każdej z pięciu
+stron, a nazwa rodziny w `--font-body` w `style.css` — podmiana wymaga obu
+miejsc.
 
 ## Publikacja
 

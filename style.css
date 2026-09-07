@@ -3,30 +3,33 @@
    Shapes: buttons are pills, cards and the photo use --radius, inline code 6px. */
 
 :root {
-  /* Dark, cool, desaturated surfaces; one hot accent.
-     The accent is bright, so text on top of it is dark (--on-accent),
-     never white: white on this pink only reaches 3.6:1. */
-  --bg: #12141A;
-  --bg-card: #1A1D26;
-  --text: #E6E8EF;
-  --text-muted: #A0A7BA;
-  --border: #2A2E3A;
-  --accent: #FF2E63;
-  --accent-hover: #FF5C85;
-  --on-accent: #12141A;
+  /* Warm paper surfaces, dark ink, one yellow accent.
+     The accent splits in two because #F1D302 only reaches 1.4:1 on paper:
+     --accent is a FILL (buttons, highlights, rules) and always carries
+     --on-accent ink on top; --accent-ink is the readable yellow, and the
+     only one allowed to be text. */
+  --bg: #FAF6EC;
+  --bg-card: #F2EBD9;
+  --text: #26241F;
+  --text-muted: #605B4F;
+  --border: #D5CBB0;
+  --accent: #F1D302;
+  --accent-hover: #D9BE00;
+  --accent-ink: #6B5900;
+  --on-accent: #26241F;
 
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-heading: "Bricolage Grotesque", var(--font-body);
+  --font-body: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+  --font-heading: var(--font-body);
 
   --radius: 12px;
-  --content-width: 760px;
-  --sidebar-width: 280px;
+  --content-width: 820px;
+  --sidebar-width: 320px;
   --transition: 0.15s ease;
 }
 
 * { box-sizing: border-box; }
 
-html { color-scheme: dark; }
+html { color-scheme: light; }
 
 body {
   margin: 0;
@@ -34,7 +37,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
@@ -43,17 +46,17 @@ h1, h2, h3 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   margin: 0 0 0.5rem;
 }
-h1 { font-size: 2.2rem; }
+h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.1rem; }
 p { margin: 0 0 1rem; }
 
-a { color: var(--accent); text-decoration: none; }
+a { color: var(--accent-ink); text-decoration: none; }
 a:hover { text-decoration: underline; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
 
 .skip-link {
   position: absolute; left: calc(var(--sidebar-width) + 1rem); top: -3rem; z-index: 20;
@@ -74,9 +77,11 @@ a:hover { text-decoration: underline; }
   border-right: 1px solid var(--border);
 }
 .brand { font-family: var(--font-heading); font-weight: 600; color: var(--text); }
-.brand:hover { color: var(--accent); text-decoration: none; }
+.brand:hover { color: var(--accent-ink); text-decoration: none; }
 .sidebar-nav { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1.5rem; }
-.sidebar-social { display: flex; align-items: center; gap: 0.9rem; margin-top: auto; padding-top: 1.5rem; font-size: 0.85rem; }
+/* shrink to the label so the marker stripe hugs the word, not the column */
+.sidebar-nav a { align-self: flex-start; }
+.sidebar-social { display: flex; align-items: center; gap: 0.8rem; margin-top: auto; padding-top: 1.5rem; font-size: 0.8rem; }
 .sidebar-social a { display: inline-flex; align-items: center; gap: 0.3rem; }
 /* Brand marks are masks, not images, so the glyph takes currentColor and
    follows the hover state. No colour is baked into the data URI. */
@@ -92,8 +97,11 @@ a:hover { text-decoration: underline; }
 .sidebar-social a[href*="github"] { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E"); }
 .sidebar-social a[href^="mailto"] { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E"); }
 .sidebar-nav a, .sidebar-social a { color: var(--text); }
-.sidebar-nav a[aria-current] { color: var(--accent); font-weight: 600; }
-.sidebar-nav a:hover, .sidebar-social a:hover { color: var(--accent); text-decoration: none; }
+.sidebar-nav a[aria-current] {
+  color: var(--text); font-weight: 600;
+  box-shadow: inset 0 -0.45em var(--accent);
+}
+.sidebar-nav a:hover, .sidebar-social a:hover { color: var(--accent-ink); text-decoration: none; }
 .sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); }
 
 /* Layout */
@@ -107,7 +115,7 @@ a:hover { text-decoration: underline; }
 .button {
   display: inline-block;
   padding: 0.55rem 1.1rem;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--accent-ink);
   border-radius: 999px;
   background: var(--accent);
   color: var(--on-accent);
@@ -116,7 +124,7 @@ a:hover { text-decoration: underline; }
   white-space: nowrap;
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
-.button:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); text-decoration: none; }
+.button:hover { background: var(--accent-hover); border-color: var(--accent-ink); color: var(--on-accent); text-decoration: none; }
 .button:active { transform: translateY(1px); }
 .button.secondary { background: transparent; border-color: var(--border); color: var(--text); }
 .button.secondary:hover { background: var(--bg-card); border-color: var(--text-muted); color: var(--text); }
@@ -136,7 +144,7 @@ a:hover { text-decoration: underline; }
   margin: 0;
 }
 .timeline dt {
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -190,7 +198,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--radius);
   color: var(--text);
 }
-.post:hover { background: var(--bg-card); color: var(--accent); text-decoration: none; }
+.post:hover { background: var(--bg-card); color: var(--accent-ink); text-decoration: none; }
 .post time {
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -206,7 +214,6 @@ a:hover { text-decoration: underline; }
 .article h2 { margin-top: 2rem; }
 .article p { max-width: 65ch; }
 .article code {
-  font-family: ui-monospace, Consolas, monospace;
   font-size: 0.92em;
   padding: 0 0.3em;
   border: 1px solid var(--border);
@@ -216,7 +223,7 @@ a:hover { text-decoration: underline; }
 
 /* CV: same rules as the printed CV, the accent is a line, not a fill */
 .cv-header { margin-bottom: 1.5rem; }
-.cv-name { font-size: 2rem; color: var(--accent); line-height: 1.1; margin: 0; }
+.cv-name { font-size: 2rem; color: var(--accent-ink); line-height: 1.1; margin: 0; }
 .cv-role { font-size: 1.15rem; margin: 0.25rem 0 0; }
 .cv-contact { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0.5rem 0 0; }
 .cv-contact a { color: inherit; }
@@ -227,8 +234,8 @@ a:hover { text-decoration: underline; }
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
+  color: var(--accent-ink);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.3rem;
   margin: 0 0 0.75rem;
 }
@@ -255,7 +262,7 @@ a:hover { text-decoration: underline; }
   content: "";
   position: absolute; left: 0; top: 0.6em;
   width: 5px; height: 5px;
-  background: var(--accent);
+  background: var(--accent-ink);
 }
 
 .item { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 0.3rem; }
@@ -263,17 +270,18 @@ a:hover { text-decoration: underline; }
 
 @media print {
   @page { size: A4; margin: 14mm; }
-  /* Paper is white, so the screen tokens are swapped for ink-safe ones:
-     the hot pink only reaches 3.6:1 on white, the muted grey 2.4:1. */
+  /* On paper the yellow fill washes out, so both accents collapse into one
+     dark mustard (8.6:1 on white) and the warm greys get sharper. */
   :root {
-    --accent: #C2185B;
+    --accent: #5A4B00;
+    --accent-ink: #5A4B00;
     --text-muted: #555555;
     --border: #CCCCCC;
   }
   .skip-link, .sidebar, .cv-actions { display: none; }
   body {
     padding-left: 0;
-    background: #fff; color: #000;
+    background: #fff; color: var(--text);
     font-size: 10pt; line-height: 1.35;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
