@@ -101,9 +101,9 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
 .sidebar-nav a { display: inline-flex; align-items: center; gap: 0.4rem; }
 .pix { image-rendering: pixelated; vertical-align: -0.2em; }
 .cv h2 .pix {
-  width: 0.85em; height: 0.85em;
-  vertical-align: -0.15em;
-  margin-right: 0.3em;
+  width: 16px; height: 16px;
+  vertical-align: middle;
+  margin-right: 0.25em;
 }
 .sidebar-nav a[aria-current] {
   color: var(--text); font-weight: 600;
