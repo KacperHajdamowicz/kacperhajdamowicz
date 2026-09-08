@@ -325,10 +325,10 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
     padding: 1rem;
     border-right: 0; border-bottom: 1px solid var(--border);
   }
-  .sidebar-nav { flex-direction: row; gap: 0; margin-top: 0; align-items: center; flex-wrap: wrap; }
-  .sidebar-nav a { width: calc(100% / 3); justify-content: center; text-align: center; padding: 0.25rem 0; }
-  .sidebar-social { margin-top: 0; padding-top: 0; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
-  .sidebar-social a { width: calc(100% / 3); justify-content: center; text-align: center; padding: 0.25rem 0; }
+  .sidebar-nav { flex-direction: column; gap: 0.15rem; margin-top: 0; align-items: stretch; }
+  .sidebar-nav a { width: 100%; justify-content: center; text-align: center; padding: 0.25rem 0; }
+  .sidebar-social { margin-top: 0.5rem; padding-top: 0; align-items: stretch; justify-content: center; gap: 0.15rem; flex-direction: column; }
+  .sidebar-social a { width: 100%; justify-content: center; text-align: center; padding: 0.25rem 0; }
   .sidebar-note { display: none; }
   .skip-link { left: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
