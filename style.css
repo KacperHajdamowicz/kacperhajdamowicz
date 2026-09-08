@@ -228,7 +228,9 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
 .cv-header { margin-bottom: 1.5rem; }
 .cv-name { font-size: 2rem; color: var(--accent-ink); line-height: 1.1; margin: 0; }
 .cv-role { font-size: 1.15rem; margin: 0.25rem 0 0; }
-.cv-contact { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0.5rem 0 0; }
+.cv-contact { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0.5rem 0 0; }
+.cv-contact-row { display: inline-block; }
+.cv-contact-row + .cv-contact-row { margin-top: 0.25rem; }
 .cv-contact a { color: inherit; }
 .cv-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
 
