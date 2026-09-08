@@ -320,14 +320,15 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
   body { padding-left: 0; }
   .sidebar {
     position: static; width: auto;
-    flex-direction: row; flex-wrap: wrap; align-items: center;
-    gap: 0.5rem 1.25rem;
+    flex-direction: column; flex-wrap: nowrap; align-items: center;
+    gap: 0.5rem;
     padding: 1rem;
     border-right: 0; border-bottom: 1px solid var(--border);
   }
-  .sidebar-nav { flex-direction: column; gap: 0.15rem; margin-top: 0; align-items: stretch; }
+  .sidebar .brand { width: 100%; text-align: center; }
+  .sidebar-nav { flex-direction: column; gap: 0.15rem; margin-top: 0; align-items: stretch; width: 100%; }
   .sidebar-nav a { width: 100%; justify-content: center; text-align: center; padding: 0.25rem 0; }
-  .sidebar-social { margin-top: 0.5rem; padding-top: 0; align-items: stretch; justify-content: center; gap: 0.15rem; flex-direction: column; }
+  .sidebar-social { margin-top: 0.25rem; padding-top: 0; align-items: stretch; justify-content: center; gap: 0.15rem; flex-direction: column; width: 100%; }
   .sidebar-social a { width: 100%; justify-content: center; text-align: center; padding: 0.25rem 0; }
   .sidebar-note { display: none; }
   .skip-link { left: 1rem; }
