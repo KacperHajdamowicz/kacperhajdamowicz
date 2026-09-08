@@ -82,7 +82,7 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
 .sidebar-nav { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1.5rem; }
 /* shrink to the label so the marker stripe hugs the word, not the column */
 .sidebar-nav a { align-self: flex-start; }
-.sidebar-social { display: flex; align-items: center; gap: 0.8rem; margin-top: auto; padding-top: 1.5rem; font-size: 0.8rem; }
+.sidebar-social { display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-top: auto; padding-top: 1.5rem; font-size: 0.8rem; }
 .sidebar-social a { display: inline-flex; align-items: center; gap: 0.3rem; }
 /* Brand marks are masks, not images, so the glyph takes currentColor and
    follows the hover state. No colour is baked into the data URI. */
@@ -110,7 +110,7 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
   box-shadow: inset 0 -0.45em var(--accent);
 }
 .sidebar-nav a:hover, .sidebar-social a:hover { color: var(--accent-bright); text-decoration: none; }
-.sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); }
+.sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: center; }
 
 /* Layout */
 .main { max-width: var(--content-width); margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
