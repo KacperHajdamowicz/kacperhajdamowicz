@@ -160,6 +160,12 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
 .timeline dd { margin: 0; }
 
 .hero-figure { margin: 0; text-align: center; }
+.hero-tech {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 0.25rem;
+  margin: 0.9rem 0.35rem 0;
+}
+.hero-tech .pix { width: 17px; height: 17px; }
 .hero-image {
   display: block;
   width: 250px; height: 250px;
