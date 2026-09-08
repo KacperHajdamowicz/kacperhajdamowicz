@@ -325,9 +325,9 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
     padding: 1rem;
     border-right: 0; border-bottom: 1px solid var(--border);
   }
-  .sidebar-nav { flex-direction: row; gap: 1.25rem; margin-top: 0; }
-  .sidebar-social { margin-top: 0; padding-top: 0; }
-  .sidebar-note { flex-basis: 100%; margin-top: 0; }
+  .sidebar-nav { flex-direction: row; gap: 1.25rem; margin-top: 0; align-items: center; }
+  .sidebar-social { margin-top: 0; padding-top: 0; align-items: center; justify-content: center; }
+  .sidebar-note { display: none; }
   .skip-link { left: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
   .entry-line, .item { flex-direction: column; gap: 0; }
