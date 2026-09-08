@@ -341,7 +341,7 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
   .hero-figure { order: -1; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 0 1rem; text-align: left; }
   .hero-image { grid-column: 1; grid-row: 1; width: 96px; height: 96px; justify-self: center; }
   .hero-tech { grid-column: 1; grid-row: 2; order: 0; justify-content: flex-start; gap: 0.5rem; margin: 0.4rem 0 0; }
-  .hero-bubble { grid-column: 2; grid-row: 1; height: 96px; margin-top: 0; padding: 0.8rem 0.9rem; display: flex; align-items: center; }
+  .hero-bubble { grid-column: 2; grid-row: 1; height: 84px; margin-top: 0; align-self: center; padding: 0.8rem 0.9rem; display: flex; align-items: center; }
   .cards { grid-template-columns: 1fr; }
   .certs li { flex-direction: column; gap: 0; }
 }
