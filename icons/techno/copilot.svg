@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true" focusable="false">
-  <rect x="2" y="2" width="20" height="20" rx="4" fill="#7F77F1"/>
-  <polygon points="12,6 15,15 12,13 9,15" fill="#C9C1FF"/>
-  <rect x="11" y="4" width="2" height="3" fill="#C9C1FF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" shape-rendering="crispEdges">
+  <path fill="#1F9AD4" d="M4 1h5v1h-5zM3 2h7v1h-7zM2 3h7v1h-7zM2 4h7v1h-7zM1 5h7v1h-7z"/>
+  <path fill="#164FCE" d="M9 1h2v1h-2zM10 2h2v1h-2zM9 3h4v1h-4zM9 4h4v1h-4z"/>
+  <path fill="#C357C5" d="M10 5h5v1h-5zM10 6h5v1h-5zM9 7h6v1h-6zM11 8h4v1h-4z"/>
+  <path fill="#73B75D" d="M1 6h6v1h-6zM1 7h6v1h-6zM1 8h6v1h-6z"/>
+  <path fill="#F36C6A" d="M9 8h2v1h-2zM9 9h6v1h-6zM8 10h7v1h-7zM7 11h7v1h-7zM8 12h6v1h-6zM10 13h3v1h-3z"/>
+  <path fill="#EBB238" d="M1 9h5v1h-5zM1 10h5v1h-5zM2 11h5v1h-5zM3 12h5v1h-5zM4 13h6v1h-6zM5 14h6v1h-6z"/>
 </svg>
