@@ -195,19 +195,28 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
 /* Posts list (blog index and landing) */
 .posts { list-style: none; margin: 0; padding: 0; }
 .post {
-  display: flex; align-items: baseline; gap: 1.25rem;
+  display: flex; flex-direction: column; gap: 0.35rem;
   margin-inline: -0.625rem;
-  padding: 0.6rem 0.625rem;
+  padding: 0.9rem 0.625rem;
   border-radius: var(--radius);
   color: var(--text);
 }
 .post:hover { background: var(--bg-card); color: var(--accent-bright); text-decoration: none; }
-.post time {
+.post-top {
+  display: flex; align-items: baseline; gap: 1.25rem;
+}
+.post-top time {
   color: var(--text-muted);
   font-size: 0.9rem;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   min-width: 8.5em;
+}
+.post-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  font-style: italic;
 }
 
 /* Article */
@@ -312,7 +321,7 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
   .skip-link { left: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
   .entry-line, .item { flex-direction: column; gap: 0; }
-  .post { flex-direction: column; gap: 0.1rem; }
+  .post { gap: 0.35rem; }
   .hero { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero-figure { order: -1; display: flex; align-items: center; gap: 1rem; text-align: left; }
   .hero-image { width: 96px; height: 96px; flex-shrink: 0; }
