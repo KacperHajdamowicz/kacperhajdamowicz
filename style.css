@@ -16,6 +16,7 @@
   --accent: #F1D302;
   --accent-hover: #D9BE00;
   --accent-ink: #6B5900;
+  --accent-bright: #B8860B;
   --on-accent: #26241F;
 
   --font-body: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
@@ -55,7 +56,7 @@ h3 { font-size: 1.1rem; }
 p { margin: 0 0 1rem; }
 
 a { color: var(--accent-ink); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { color: var(--accent-bright); text-decoration: underline; }
 :focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
 
 .skip-link {
@@ -77,7 +78,7 @@ a:hover { text-decoration: underline; }
   border-right: 1px solid var(--border);
 }
 .brand { font-family: var(--font-heading); font-weight: 600; color: var(--text); }
-.brand:hover { color: var(--accent-ink); text-decoration: none; }
+.brand:hover { color: var(--accent-bright); text-decoration: none; }
 .sidebar-nav { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1.5rem; }
 /* shrink to the label so the marker stripe hugs the word, not the column */
 .sidebar-nav a { align-self: flex-start; }
@@ -103,7 +104,7 @@ a:hover { text-decoration: underline; }
   color: var(--text); font-weight: 600;
   box-shadow: inset 0 -0.45em var(--accent);
 }
-.sidebar-nav a:hover, .sidebar-social a:hover { color: var(--accent-ink); text-decoration: none; }
+.sidebar-nav a:hover, .sidebar-social a:hover { color: var(--accent-bright); text-decoration: none; }
 .sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); }
 
 /* Layout */
@@ -200,7 +201,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--radius);
   color: var(--text);
 }
-.post:hover { background: var(--bg-card); color: var(--accent-ink); text-decoration: none; }
+.post:hover { background: var(--bg-card); color: var(--accent-bright); text-decoration: none; }
 .post time {
   color: var(--text-muted);
   font-size: 0.9rem;
