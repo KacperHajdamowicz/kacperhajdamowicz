@@ -327,11 +327,12 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
   }
   .sidebar .brand { width: 100%; text-align: center; }
   .sidebar-nav { flex-direction: row; flex-wrap: nowrap; gap: 1.5rem; margin-top: 0; align-items: stretch; width: 100%; }
-  .sidebar-social { margin-top: 0.25rem; padding-top: 0; flex-direction: row; flex-wrap: nowrap; gap: 1.5rem; align-items: stretch; justify-content: flex-start; width: 100%; }
+  .sidebar-social { margin-top: 0.25rem; padding-top: 0; flex-direction: row; flex-wrap: nowrap; gap: 0.5rem; align-items: center; justify-content: flex-start; width: 100%; }
   .sidebar-nav a, .sidebar-social a { justify-content: flex-start; text-align: left; padding: 0.3rem 0; }
-  .sidebar-nav a:nth-child(1), .sidebar-social a:nth-child(1) { flex: 0 0 auto; }
-  .sidebar-nav a:nth-child(2), .sidebar-social a:nth-child(2) { flex: 0 0 auto; }
-  .sidebar-nav a:nth-child(3), .sidebar-social a:nth-child(3) { flex: 1 1 auto; }
+  .sidebar-nav a:nth-child(1), .sidebar-nav a:nth-child(2) { flex: 0 0 auto; }
+  .sidebar-nav a:nth-child(3) { flex: 1 1 auto; }
+  .sidebar-social a { flex: 0 0 auto; font-size: 0; line-height: 0; }
+  .sidebar-social a::before { width: 1.5rem; height: 1.5rem; }
   .sidebar-note { display: none; }
   .skip-link { left: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
