@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 1. Title and description: shown in the browser tab and in search results. -->
+  <title>Power Platform This Week: September 4-11, 2026 | Kacper Hajdamowicz</title>
+  <meta name="description" content="Release Plans retired, AI at Work roadmap takes over, Wave 1 governance features landing">
+  <link rel="icon" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="sidebar">
+  <nav class="sidebar-nav" aria-label="Main">
+  <a href="../"><img class="pix" src="../icons/user.svg" alt="" width="16" height="16"> About me</a>
+    <a href="./" aria-current="true"><img class="pix" src="../icons/article.svg" alt="" width="16" height="16"> Blog</a>
+    <a href="../cv/"><img class="pix" src="../icons/briefcase.svg" alt="" width="16" height="16"> CV</a>
+    <a href="https://calendly.com/hajdamowiczkacper/30min" target="_blank" rel="noopener"><img class="pix" src="../icons/phone-call.svg" alt="" width="16" height="16"> Book a call</a>
+  </nav>
+  <nav class="sidebar-social" aria-label="Links">
+    <a href="https://www.linkedin.com/in/kacper-hajdamowicz-b1167520b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/KacperHajdamowicz" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:hajdamowiczkacper@outlook.com">Email</a>
+  </nav>
+  <p class="sidebar-note">Kacper Hajdamowicz, Wrocław.</p>
+</header>
+
+<main class="main" id="main">
+  <a class="back-link" href="./">Back to the blog</a>
+  <article class="article">
+    <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the month and year. -->
+    <h1>Power Platform This Week: September 4-11, 2026</h1>
+    <p class="post-meta"><time datetime="2026-09">September 2026</time></p>
+
+    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
+    <p>Microsoft published no major Power Platform product announcements this week. The bigger story is structural: the Release Plans system is officially retired, and the AI at Work roadmap now owns all future capability tracking for Power Platform, Dynamics 365, and Dataverse. If you rely on the old release wave calendar to plan your work, this week is when you need to adjust.</p>
+    
+    <h2>Release Plans gone, AI at Work roadmap takes over</h2>
+    <p>Starting September 2026, Microsoft no longer publishes new Release Plans on learn.microsoft.com. Every D365, Power Platform, and Dataverse capability that would have appeared in a Wave 2 plan will now show up on the AI at Work roadmap instead. The existing Wave 1 plans remain available for reference, but they will not be updated. The Release Planner tool itself retires on November 15, 2026.</p>
+    <p>For Power Platform admins and architects, this changes how you track what is coming. The old model gave you a single document every six months with planned features, dates, and descriptions. The new model is continuous: items appear on the roadmap as they are planned and roll out as they are ready. That is more frequent information, but it also means you cannot do one planning session per wave and call it done. If your governance process references Release Plan dates, you need to rewrite those checkpoints.</p>
+    <p class="post-meta"><em><a href="https://learn.microsoft.com/en-us/dynamics365/release-plans/">https://learn.microsoft.com/en-us/dynamics365/release-plans/</a></em></p>
+    <p class="post-meta"><em><a href="https://www.perspectives.plus/p/the-last-release-wave">https://www.perspectives.plus/p/the-last-release-wave</a></em></p>
+    
+    <h2>Wave 1 governance features reaching tenants now</h2>
+    <p>The 2026 release wave 1 cycle runs through September, and several Power Platform governance features are landing in production right now. Microsoft's release plan describes admin controls for agent security, real-time risk assessment inside Copilot Studio, and AI-powered governance agents that automate tenant monitoring. If you are a Platform Admin, expect to see new options appearing in the Admin Center over the coming weeks rather than on a fixed deployment date.</p>
+    <p>The practical impact depends on your tenant. Orgs with Copilot Studio agents in production should review the new agent security controls as they appear. Real-time risk assessment changes how you monitor agent behavior, which matters if you have agents making API calls or accessing sensitive data. The governance agents that automate tenant monitoring and remediation are the ones to watch long term, even if they are not yet in your environment.</p>
+    <p class="post-meta"><em><a href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/">https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/</a></em></p>
+    
+    <p>Quiet week on the announcement front. The release plan retirement is the lasting change. Everything else ships quietly, one feature at a time, on the AI at Work roadmap.</p>
+  </article>
+</main>
+
+
+<!-- 4. Save as blog/YYYY-MM-slug.html (no leading underscore).
+     5. Add the post to the top of the list in blog/index.html and in index.html ("Latest posts", max 4 items).
+     6. Run: python check_links.py -->
+</body>
+</html>
