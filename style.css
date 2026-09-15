@@ -237,12 +237,12 @@ a:hover { color: var(--accent-bright); text-decoration: underline; }
 .article p { max-width: 65ch; }
 .article-figure {
   margin: 1.5rem 0 2rem;
-  max-width: 22rem;
 }
 .article-figure img {
   display: block;
   width: 100%;
   height: auto;
+  max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 8px;
 }
