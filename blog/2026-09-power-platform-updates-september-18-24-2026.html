@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 1. Title and description: shown in the browser tab and in search results. -->
+  <title>Power Platform Updates (September 18 - 24, 2026) | Kacper Hajdamowicz</title>
+  <meta name="description" content="Microsoft published several highly practical updates for Power Pages and Microsoft Foundry this week.">
+  <link rel="icon" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="sidebar">
+  <nav class="sidebar-nav" aria-label="Main">
+  <a href="../"><img class="pix" src="../icons/user.svg" alt="" width="16" height="16"> About me</a>
+    <a href="./" aria-current="true"><img class="pix" src="../icons/article.svg" alt="" width="16" height="16"> Blog</a>
+    <a href="../cv/"><img class="pix" src="../icons/briefcase.svg" alt="" width="16" height="16"> CV</a>
+    <a href="https://calendly.com/hajdamowiczkacper/30min" target="_blank" rel="noopener"><img class="pix" src="../icons/phone-call.svg" alt="" width="16" height="16"> Book a call</a>
+  </nav>
+  <nav class="sidebar-social" aria-label="Links">
+    <a href="https://www.linkedin.com/in/kacper-hajdamowicz-b1167520b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/KacperHajdamowicz" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:hajdamowiczkacper@outlook.com">Email</a>
+  </nav>
+  <p class="sidebar-note">Kacper Hajdamowicz, Wrocław.</p>
+</header>
+
+<main class="main" id="main">
+  <a class="back-link" href="./">Back to the blog</a>
+  <article class="article">
+    <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the month and year. -->
+    <h1>Power Platform Updates (September 18 - 24, 2026)</h1>
+    <p class="post-meta"><time datetime="2026-09">September 2026</time></p>
+
+    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
+    <p>Microsoft published several highly practical updates for Power Pages and Microsoft Foundry this week. Administrators handling external-facing sites will appreciate the shift to managed certificates alongside finalized list controls. Developers working on AI agents gained concrete ways to restrict network access and schedule background tasks. This round avoids conceptual announcements and focuses on core infrastructure changes you can use right away.</p>
+    
+    <h2>Egress controls for Microsoft Foundry agents</h2>
+    <p>Microsoft introduced a preview feature granting finer control over where hosted agents can send network requests. You define explicit outbound rules via an RAI policy and attach them to your agent container. This removes the need to rely entirely on code-level checks inside the agent tools to prevent connections to unapproved domains. A companion audit mode lets you run permitted and denied probes to verify the network boundary before strictly blocking traffic.</p>
+    <p class="post-meta"><em><a href="https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/">https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/</a></em></p>
+    
+    <h2>Microsoft Foundry routines reach general availability</h2>
+    <p>Building an automated agent that responds to events previously required running your own schedulers and event listeners. The new routines feature moves that infrastructure directly into the Foundry Agent Service. You choose to configure an agent to run on a scheduled basis or react immediately to external events like new Microsoft Teams messages. A reminder tool also lets an active agent pause its work and schedule its next execution if it has to wait for a long external process to finish.</p>
+    <p class="post-meta"><em><a href="https://devblogs.microsoft.com/foundry/from-chatbots-to-automated-assistants-routines-in-microsoft-foundry-are-now-generally-available/">https://devblogs.microsoft.com/foundry/from-chatbots-to-automated-assistants-routines-in-microsoft-foundry-are-now-generally-available/</a></em></p>
+    
+    <h2>Default managed certificates in Power Pages</h2>
+    <p>Getting a custom domain running on Power Pages historically involved buying a certificate and managing renewals manually. A quiet update highlighted by Nick Doelman changes this workflow. Microsoft now issues and automatically renews free SSL certificates for custom domains. You configure this entirely in the Power Platform admin center during domain setup. You do need to temporarily disable your Content Delivery Network (CDN) and Web Application Firewall (WAF) before the option becomes visible.</p>
+    <p class="post-meta"><em><a href="https://readyxrm.blog/2026/09/18/free-ssl-tls-certificates-for-power-pages/">https://readyxrm.blog/2026/09/18/free-ssl-tls-certificates-for-power-pages/</a></em></p>
+    
+    <h2>Modern List goes to general availability</h2>
+    <p>The Modern List component in Power Pages is the new default control for displaying Dataverse records on all fresh sites. It replaces the classic list presentation with Fluent UI components and infinite scrolling out of the box. Developers get access to a Client API to manipulate the grid with custom JavaScript. You read raw cell values and change column formatting programmatically without dropping down to a completely custom data grid. Classic lists will stay active on existing portals so migration can happen gradually.</p>
+    <p class="post-meta"><em><a href="https://www.microsoft.com/en-us/power-platform/blog/power-pages/modern-list-in-power-pages-is-now-generally-available/">https://www.microsoft.com/en-us/power-platform/blog/power-pages/modern-list-in-power-pages-is-now-generally-available/</a></em></p>
+    
+    <h2>Invoking cloud flows from Server Logic</h2>
+    <p>Power Pages Server Logic gives developers a secure backend environment for running business rules. Microsoft extended this pattern by adding support for triggering Power Automate cloud flows directly from that code. When a website interaction kicks off a larger business process like sending notifications to third-party systems, you simply pass the event off to a flow using an established connector. This keeps the client responsive and avoids duplicating complex integration logic your organization already built inside Power Automate.</p>
+    <p class="post-meta"><em><a href="https://www.microsoft.com/en-us/power-platform/blog/power-pages/extend-server-logic-with-power-automate-cloud-flows-in-power-pages/">https://www.microsoft.com/en-us/power-platform/blog/power-pages/extend-server-logic-with-power-automate-cloud-flows-in-power-pages/</a></em></p>
+    
+    <h2>Building human-in-the-loop workflows</h2>
+    <p>Autonomous agents consistently hit situations they cannot safely handle alone. Matthew Devaney created a technical walkthrough demonstrating how to pause a Copilot Studio process to ask a human reviewer for guidance. The agent sends a targeted message via Teams or email, waits for a structured response, and uses that decision to pick its next action. This specific pattern isolates risky automated choices and ensures sensitive branches only proceed under direct supervision.</p>
+    <p class="post-meta"><em><a href="https://www.matthewdevaney.com/video-copilot-studio-add-human-review-to-your-ai-agents/">https://www.matthewdevaney.com/video-copilot-studio-add-human-review-to-your-ai-agents/</a></em></p>
+  </article>
+</main>
+
+
+<!-- 4. Save as blog/YYYY-MM-slug.html (no leading underscore).
+     5. Add the post to the top of the list in blog/index.html and in index.html ("Latest posts", max 4 items).
+     6. Run: python check_links.py -->
+</body>
+</html>
