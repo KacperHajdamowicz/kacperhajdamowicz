@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 1. Title and description: shown in the browser tab and in search results. Fill og:title, og:description and og:url too. -->
+  <title>Power Platform News: Late September 2026 | Kacper Hajdamowicz</title>
+  <meta name="description" content="Major updates to Copilot, self-service ownership in Power Pages, human reviews in Copilot Studio, and Azure extraction tools.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Power Platform News: Late September 2026">
+  <meta property="og:description" content="Major updates to Copilot, self-service ownership in Power Pages, human reviews in Copilot Studio, and Azure extraction tools.">
+  <meta property="og:url" content="https://kacperhajdamowicz.com/blog/2026-10-power-platform-news-late-september-2026.html">
+  <meta property="og:image" content="https://kacperhajdamowicz.com/icon-512.png">
+  <link rel="icon" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="sidebar">
+  <nav class="sidebar-nav" aria-label="Main">
+  <a href="../"><img class="pix" src="../icons/user.svg" alt="" width="16" height="16"> About me</a>
+    <a href="./" aria-current="true"><img class="pix" src="../icons/article.svg" alt="" width="16" height="16"> Blog</a>
+    <a href="../cv/"><img class="pix" src="../icons/briefcase.svg" alt="" width="16" height="16"> CV</a>
+    <a href="../book/"><img class="pix" src="../icons/phone-call.svg" alt="" width="16" height="16"> Book a call</a>
+  </nav>
+  <nav class="sidebar-social" aria-label="Links">
+    <a href="https://www.linkedin.com/in/kacper-hajdamowicz-b1167520b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/KacperHajdamowicz" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:hajdamowiczkacper@outlook.com">Email</a>
+  </nav>
+  <p class="sidebar-note">Kacper Hajdamowicz, Wrocław.</p>
+</header>
+
+<main class="main" id="main">
+  <a class="back-link" href="./">Back to the blog</a>
+  <article class="article">
+    <!-- 2. Title, icon and date. Pick an icon from icons/ (pixelarticons) and use the same one in the post lists.
+         datetime is YYYY-MM-DD, the visible text is day, month and year (e.g. 25 Sep 2026). -->
+    <h1>Power Platform News: Late September 2026</h1>
+    <p class="post-meta"><img class="pix" src="../icons/article.svg" alt="" width="16" height="16"> <time datetime="2026-10-04">4 Oct 2026</time></p>
+
+    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">.
+         Optional diagram: <figure class="article-figure diagram"> with an inline <svg viewBox="0 0 352 H"> drawn at phone width,
+         classes box / box-accent / line / label / on-accent / muted, one accent element, then <figcaption>. See an existing post. -->
+    <p>Microsoft released a major update to the Copilot app, adding persistent autonomous agents and built-in app generation capabilities. The Power Pages team introduced a long-awaited self-service portal for transferring site ownership. This cuts administrative delays when employees change roles. We also received clarity on the future of Azure content extraction tools and a practical guide on integrating human approvals within Copilot Studio workflows. These updates grant developers and administrators tighter control over AI interactions and infrastructure costs.</p>
+    
+    <h2>The reimagined Copilot app includes Code and Autopilot</h2>
+    <p>Microsoft revamped the Copilot interface to consolidate everyday chat, delegated tasks, and Office document generation. A major addition is Code, a feature allowing users to generate purpose-built internal applications using natural language. The resulting tools run securely via a new Microsoft Copilot Managed Runtime. The Autopilot feature provides a persistent digital agent that executes long-running processes across Teams and Outlook without waiting for consecutive prompts. Finally, Copilot now natively reads data and workflows from Dynamics 365 and Power Platform, eliminating the need to switch windows to retrieve customer context.</p>
+    <p class="post-meta"><em><a href="https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/">https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/</a></em></p>
+    
+    <h2>Self-service ownership transfers for Power Pages</h2>
+    <p>Site owners and service administrators can now transfer ownership of a Power Pages site to another eligible user in the same tenant directly from the management interface. Previously, assigning a new owner after a staff departure required custom administrative involvement. The platform now logs all transfer details, records the previous owner, and notifies stakeholders via email. This change helps maintain accountability for long-lived web portals as organizational structures change.</p>
+    <p class="post-meta"><em><a href="https://www.microsoft.com/en-us/power-platform/blog/power-pages/transfer-power-pages-site-ownership-with-self-service/">https://www.microsoft.com/en-us/power-platform/blog/power-pages/transfer-power-pages-site-ownership-with-self-service/</a></em></p>
+    
+    <h2>Adding human reviews to Copilot Studio agents</h2>
+    <p>Matthew Devaney published a guide explaining how to design Copilot Studio agents that pause their execution to request human verification. The tutorial demonstrates evaluating user input against pre-approved categories. It routes unrecognizable requests to a loan officer through Microsoft Teams. The workflow relies on an adaptive card to collect the officer's decision. It then updates a SharePoint backend and resumes the agent's actions based on the response. This pattern is critical for intercepting edge cases where automated choices carry unacceptable business risk.</p>
+    <p class="post-meta"><em><a href="https://www.matthewdevaney.com/copilot-studio-ask-for-human-review-on-ai-decisions/">https://www.matthewdevaney.com/copilot-studio-ask-for-human-review-on-ai-decisions/</a></em></p>
+    
+    <h2>Clarifying the technical focus of Azure extraction tools</h2>
+    <p>The Microsoft Foundry team outlined how Azure Document Intelligence and Azure Content Understanding solve completely different corporate data validation problems. Document Intelligence targets high-precision parsing of known layouts like tax forms and dense invoices. Content Understanding handles messy, multimodal inputs where generative AI models read across unstructured text and scanned images to synthesize custom schemas. Microsoft noted imminent upgrades for Content Understanding, primarily focusing on agentic reasoning capabilities and synchronous reading APIs.</p>
+    <p class="post-meta"><em><a href="https://devblogs.microsoft.com/foundry/why-content-extraction-still-matters-in-the-genai-era/">https://devblogs.microsoft.com/foundry/why-content-extraction-still-matters-in-the-genai-era/</a></em></p>
+  </article>
+</main>
+
+
+<!-- 4. Save as blog/2026-10-power-platform-news-late-september-2026.html (no leading underscore).
+     5. Add the post to the top of the list in blog/index.html and in index.html ("Latest posts", max 4 items).
+     6. Run: python check_links.py -->
+</body>
+</html>
