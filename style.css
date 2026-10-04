@@ -399,6 +399,20 @@ a:hover { text-decoration: underline; }
 .company { font-weight: 400; }
 
 .skills div { margin-bottom: 0.3rem; }
+/* Pixel before each skill label, coloured by area; order follows the
+   list in cv/index.html. Hidden in print. */
+.skills b::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  margin-right: 0.5rem;
+  vertical-align: 0.15em;
+  background: var(--skill, var(--border));
+}
+.skills div:nth-child(1), .skills div:nth-child(4) { --skill: var(--pp-light); }
+.skills div:nth-child(2), .skills div:nth-child(8) { --skill: var(--ai-light); }
+.skills div:nth-child(3), .skills div:nth-child(6) { --skill: var(--azure-light); }
+.skills div:nth-child(5) { --skill: var(--data-light); }
 
 .entry { margin-bottom: 1.25rem; break-inside: avoid; }
 .entry-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
@@ -434,7 +448,7 @@ a:hover { text-decoration: underline; }
     --text-muted: #555555;
     --border: #CCCCCC;
   }
-  .skip-link, .sidebar, .cv-actions { display: none; }
+  .skip-link, .sidebar, .cv-actions, .skills b::before { display: none; }
   body {
     padding-left: 0;
     background: #fff; color: var(--text);
