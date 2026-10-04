@@ -153,17 +153,15 @@ a:hover { text-decoration: underline; }
   -webkit-mask: var(--pixel-gem);
   mask: var(--pixel-gem);
 }
-/* Single gems before timeline years, certificates and CV skills. --dot is
-   set per row below; rows outside the four areas stay neutral. */
+/* Pixel-art area icon (icons/area, 16x16 at 1x) on timeline years,
+   certificates and CV skills. --area-icon is set per row below; rows outside
+   the four areas get the neutral clipboard. */
 .timeline dt::after,
 .certs li > span:first-child::before,
 .skills b::before {
   content: "";
-  width: 12px; height: 12px;
-  background: var(--dot, var(--border));
-  box-shadow: inset -3px -3px var(--pixel-shade);
-  -webkit-mask: var(--pixel-gem);
-  mask: var(--pixel-gem);
+  width: 16px; height: 16px;
+  background: var(--area-icon, url("icons/area/process.svg")) center / 16px 16px no-repeat;
 }
 
 /* Layout */
@@ -218,7 +216,7 @@ a:hover { text-decoration: underline; }
 .timeline {
   display: grid;
   grid-template-columns: max-content 1fr;
-  column-gap: 1.25rem;
+  column-gap: 1.75rem;
   row-gap: 0.6rem;
   margin: 0;
 }
@@ -229,15 +227,15 @@ a:hover { text-decoration: underline; }
   white-space: nowrap;
 }
 .timeline dd { margin: 0; }
-/* A gem in the column gap after each year, coloured by the area that
+/* An icon in the column gap after each year, for the area that
    period was about (order of the rows in index.html). Absolute, so the
    hero gains no height. */
 .timeline dt { position: relative; }
-.timeline dt::after { position: absolute; right: -16px; top: calc(0.775em - 6px); }
-.timeline dt:nth-of-type(1), .timeline dt:nth-of-type(2) { --dot: var(--data-light); }
-.timeline dt:nth-of-type(3) { --dot: var(--pp-light); }
-.timeline dt:nth-of-type(4) { --dot: var(--azure-light); }
-.timeline dt:nth-of-type(5) { --dot: var(--ai-light); }
+.timeline dt::after { position: absolute; right: -22px; top: calc(0.775em - 8px); }
+.timeline dt:nth-of-type(1), .timeline dt:nth-of-type(2) { --area-icon: url("icons/area/data.svg"); }
+.timeline dt:nth-of-type(3) { --area-icon: url("icons/area/power-platform.svg"); }
+.timeline dt:nth-of-type(4) { --area-icon: url("icons/area/azure.svg"); }
+.timeline dt:nth-of-type(5) { --area-icon: url("icons/area/ai.svg"); }
 
 .hero-figure { margin: 0; text-align: center; }
 .hero-tech {
@@ -295,12 +293,12 @@ a:hover { text-decoration: underline; }
   border-top: 1px solid var(--border);
 }
 .certs li:first-child { border-top: 0; }
-/* Gem before each certificate, coloured by its area; ITIL stays neutral.
+/* Icon before each certificate, for its area; ITIL gets the neutral one.
    Order follows the list in index.html. */
-.certs li > span:first-child::before { display: inline-block; margin-right: 0.6rem; vertical-align: -0.05em; }
-.certs li:nth-child(1) { --dot: var(--ai-light); }
-.certs li:nth-child(2), .certs li:nth-child(4) { --dot: var(--data-light); }
-.certs li:nth-child(5) { --dot: var(--azure-light); }
+.certs li > span:first-child::before { display: inline-block; margin-right: 0.6rem; vertical-align: -0.2em; }
+.certs li:nth-child(1) { --area-icon: url("icons/area/ai.svg"); }
+.certs li:nth-child(2), .certs li:nth-child(4) { --area-icon: url("icons/area/data.svg"); }
+.certs li:nth-child(5) { --area-icon: url("icons/area/azure.svg"); }
 
 /* Posts list (blog index and landing) */
 .posts { list-style: none; margin: 0; padding: 0; }
@@ -392,13 +390,14 @@ a:hover { text-decoration: underline; }
 .company { font-weight: 400; }
 
 .skills div { margin-bottom: 0.3rem; }
-/* Gem before each skill label, coloured by area; order follows the
+/* Icon before each skill label, for its area; order follows the
    list in cv/index.html. Hidden in print. */
-.skills b::before { display: inline-block; margin-right: 0.5rem; vertical-align: -0.05em; }
-.skills div:nth-child(1), .skills div:nth-child(4) { --dot: var(--pp-light); }
-.skills div:nth-child(2), .skills div:nth-child(8) { --dot: var(--ai-light); }
-.skills div:nth-child(3), .skills div:nth-child(6) { --dot: var(--azure-light); }
-.skills div:nth-child(5) { --dot: var(--data-light); }
+.skills b::before { display: inline-block; margin-right: 0.5rem; vertical-align: -0.2em; }
+.skills div:nth-child(1), .skills div:nth-child(4) { --area-icon: url("icons/area/power-platform.svg"); }
+.skills div:nth-child(2), .skills div:nth-child(8) { --area-icon: url("icons/area/ai.svg"); }
+.skills div:nth-child(3), .skills div:nth-child(6) { --area-icon: url("icons/area/azure.svg"); }
+.skills div:nth-child(5) { --area-icon: url("icons/area/data.svg"); }
+.skills div:nth-child(9) { --area-icon: url("icons/area/languages.svg"); }
 
 .entry { margin-bottom: 1.25rem; break-inside: avoid; }
 .entry-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
