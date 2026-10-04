@@ -31,6 +31,11 @@
   --data-light: #E6AD10;
   --azure-dark: #1B44B1;
   --azure-light: #4894FE;
+  /* Shape of every area marker: an 8-bit gem, 4x4 cells of 3px with the
+     corners cut, tiled every 5 cells so a row of gems keeps a one-cell gap. Shaded
+     on its bottom and right edge with a see-through layer of --text. */
+  --pixel-gem: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 4'%3E%3Cpath d='M1 0h2v1h1v2H3v1H1V3H0V1h1z'/%3E%3C/svg%3E") 0 0 / 15px 12px repeat-x;
+  --pixel-shade: color-mix(in srgb, var(--text) 35%, transparent);
 
   --font-body: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
 
@@ -134,19 +139,35 @@ a:hover { text-decoration: underline; }
 .sidebar-nav a:hover { text-decoration: none; }
 .sidebar-social a:hover { color: var(--accent-ink); text-decoration: none; }
 .sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: center; }
-/* Above the note: a row of four pixels in the brand colours of icons/techno,
+/* Above the note: a row of four gems in the brand colours of icons/techno,
    in the order purple (Power Apps), blue (Power Automate), green (Copilot),
-   yellow (Power BI). */
+   yellow (Power BI). The mask cuts the gem shape and the gaps; the first two
+   layers draw the shaded bottom row and right column of each gem. */
 .sidebar-note::before {
   content: "";
   display: block;
-  width: 30px; height: 6px;
+  width: 57px; height: 12px;
   margin: 0 auto 0.75rem;
-  background: linear-gradient(90deg,
-    var(--pp-light) 0 6px, transparent 6px 8px,
-    var(--azure-light) 8px 14px, transparent 14px 16px,
-    var(--ai-light) 16px 22px, transparent 22px 24px,
-    var(--data-light) 24px 30px);
+  background:
+    linear-gradient(transparent 9px, var(--pixel-shade) 9px),
+    repeating-linear-gradient(90deg, transparent 0 9px, var(--pixel-shade) 9px 12px, transparent 12px 15px),
+    linear-gradient(90deg,
+      var(--pp-light) 0 15px, var(--azure-light) 15px 30px,
+      var(--ai-light) 30px 45px, var(--data-light) 45px);
+  -webkit-mask: var(--pixel-gem);
+  mask: var(--pixel-gem);
+}
+/* Single gems before timeline years, certificates and CV skills. --dot is
+   set per row below; rows outside the four areas stay neutral. */
+.timeline dt::after,
+.certs li > span:first-child::before,
+.skills b::before {
+  content: "";
+  width: 12px; height: 12px;
+  background: var(--dot, var(--border));
+  box-shadow: inset -3px -3px var(--pixel-shade);
+  -webkit-mask: var(--pixel-gem);
+  mask: var(--pixel-gem);
 }
 
 /* Layout */
@@ -212,20 +233,15 @@ a:hover { text-decoration: underline; }
   white-space: nowrap;
 }
 .timeline dd { margin: 0; }
-/* A pixel in the column gap after each year, coloured by the area that
+/* A gem in the column gap after each year, coloured by the area that
    period was about (order of the rows in index.html). Absolute, so the
    hero gains no height. */
 .timeline dt { position: relative; }
-.timeline dt::after {
-  content: "";
-  position: absolute; right: -12px; top: 0.6em;
-  width: 6px; height: 6px;
-  background: var(--era);
-}
-.timeline dt:nth-of-type(1), .timeline dt:nth-of-type(2) { --era: var(--data-light); }
-.timeline dt:nth-of-type(3) { --era: var(--pp-light); }
-.timeline dt:nth-of-type(4) { --era: var(--azure-light); }
-.timeline dt:nth-of-type(5) { --era: var(--ai-light); }
+.timeline dt::after { position: absolute; right: -16px; top: calc(0.775em - 6px); }
+.timeline dt:nth-of-type(1), .timeline dt:nth-of-type(2) { --dot: var(--data-light); }
+.timeline dt:nth-of-type(3) { --dot: var(--pp-light); }
+.timeline dt:nth-of-type(4) { --dot: var(--azure-light); }
+.timeline dt:nth-of-type(5) { --dot: var(--ai-light); }
 
 .hero-figure { margin: 0; text-align: center; }
 .hero-tech {
@@ -288,19 +304,12 @@ a:hover { text-decoration: underline; }
   border-top: 1px solid var(--border);
 }
 .certs li:first-child { border-top: 0; }
-/* Pixel before each certificate, coloured by its area; ITIL stays neutral.
+/* Gem before each certificate, coloured by its area; ITIL stays neutral.
    Order follows the list in index.html. */
-.certs li > span:first-child::before {
-  content: "";
-  display: inline-block;
-  width: 6px; height: 6px;
-  margin-right: 0.6rem;
-  vertical-align: 0.15em;
-  background: var(--cert, var(--border));
-}
-.certs li:nth-child(1) { --cert: var(--ai-light); }
-.certs li:nth-child(2), .certs li:nth-child(4) { --cert: var(--data-light); }
-.certs li:nth-child(5) { --cert: var(--azure-light); }
+.certs li > span:first-child::before { display: inline-block; margin-right: 0.6rem; vertical-align: -0.05em; }
+.certs li:nth-child(1) { --dot: var(--ai-light); }
+.certs li:nth-child(2), .certs li:nth-child(4) { --dot: var(--data-light); }
+.certs li:nth-child(5) { --dot: var(--azure-light); }
 
 /* Posts list (blog index and landing) */
 .posts { list-style: none; margin: 0; padding: 0; }
@@ -392,20 +401,13 @@ a:hover { text-decoration: underline; }
 .company { font-weight: 400; }
 
 .skills div { margin-bottom: 0.3rem; }
-/* Pixel before each skill label, coloured by area; order follows the
+/* Gem before each skill label, coloured by area; order follows the
    list in cv/index.html. Hidden in print. */
-.skills b::before {
-  content: "";
-  display: inline-block;
-  width: 6px; height: 6px;
-  margin-right: 0.5rem;
-  vertical-align: 0.15em;
-  background: var(--skill, var(--border));
-}
-.skills div:nth-child(1), .skills div:nth-child(4) { --skill: var(--pp-light); }
-.skills div:nth-child(2), .skills div:nth-child(8) { --skill: var(--ai-light); }
-.skills div:nth-child(3), .skills div:nth-child(6) { --skill: var(--azure-light); }
-.skills div:nth-child(5) { --skill: var(--data-light); }
+.skills b::before { display: inline-block; margin-right: 0.5rem; vertical-align: -0.05em; }
+.skills div:nth-child(1), .skills div:nth-child(4) { --dot: var(--pp-light); }
+.skills div:nth-child(2), .skills div:nth-child(8) { --dot: var(--ai-light); }
+.skills div:nth-child(3), .skills div:nth-child(6) { --dot: var(--azure-light); }
+.skills div:nth-child(5) { --dot: var(--data-light); }
 
 .entry { margin-bottom: 1.25rem; break-inside: avoid; }
 .entry-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
