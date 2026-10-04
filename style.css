@@ -249,9 +249,10 @@ a:hover { text-decoration: underline; }
 
 /* Article */
 .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; }
-.article h1 { margin-bottom: 0.25rem; text-wrap: pretty; }
+.article h1 { margin-bottom: 0.25rem; text-align: center; }
 .post-meta { color: var(--text-muted); margin-bottom: 2rem; }
-.article h2 { margin-top: 2rem; text-wrap: pretty; }
+.article h1 + .post-meta { text-align: center; }
+.article h2 { margin-top: 2rem; text-align: center; }
 .article { max-width: 65ch; }
 .article p { text-align: justify; hyphens: auto; }
 .article .post-meta { text-align: left; hyphens: manual; }
