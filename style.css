@@ -33,6 +33,11 @@
 
 html { color-scheme: light; }
 
+/* Cross-document view transition: moving between pages cross-fades the
+   viewport (about 0.25s) instead of flashing. Chrome, Edge and Safari;
+   Firefox and file:// fall back to a plain navigation. */
+@view-transition { navigation: auto; }
+
 body {
   margin: 0;
   padding-left: var(--sidebar-width);
@@ -395,4 +400,7 @@ a:hover { text-decoration: underline; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
 }
