@@ -17,6 +17,9 @@
   --accent-hover: #D9BE00;
   --accent-ink: #6B5900;
   --on-accent: #26241F;
+  /* Calendly's own page colour on the free plan (colour params ignored).
+     Fills the booking frame below Calendly's content so it reads as one sheet. */
+  --bg-sheet: #FFFFFF;
 
   --font-body: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
 
@@ -116,8 +119,22 @@ a:hover { text-decoration: underline; }
 .heading-row h2 { margin: 0; }
 .lead { font-size: 1.15rem; color: var(--text-muted); max-width: 32em; }
 
-/* Booking (Calendly in a plain iframe, no widget.js) */
-.booking { display: block; width: 100%; height: 1300px; border: 0; }
+/* Booking: our own details panel next to Calendly, mirroring Calendly's
+   own layout. The frame stays under ~650px wide so Calendly uses its flat
+   layout (no inner card). On the free plan the colour params are ignored,
+   so the frame is a white sheet with our border. */
+.booking-layout { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.5rem 2rem; margin-top: 1.5rem; }
+.booking-facts { flex: 0 0 14rem; margin: 0; }
+.booking-facts dt { color: var(--accent-ink); font-weight: 600; font-size: 0.85rem; }
+.booking-facts dd { margin: 0 0 1rem; }
+.booking {
+  flex: 1 1 22rem; min-width: 0;
+  display: block;
+  height: clamp(560px, calc(100svh - 12rem), 760px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-sheet);
+}
 .booking-fallback { margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); }
 
 /* Buttons */
@@ -325,7 +342,7 @@ a:hover { text-decoration: underline; }
     padding: 0.75rem 0.6rem;
     border-right: 0; border-bottom: 1px solid var(--border);
   }
-  .sidebar-nav { flex-direction: row; flex-wrap: nowrap; gap: 1.25rem; margin-top: 0; align-items: center; width: auto; }
+  .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: 0; align-items: center; width: auto; }
   .sidebar-nav a { justify-content: flex-start; text-align: left; padding: 0.2rem 0; flex: 0 0 auto; }
   .sidebar-social { order: -1; align-self: flex-end; margin: 0; padding-top: 0; flex-direction: row; flex-wrap: nowrap; gap: 0.6rem; align-items: center; justify-content: flex-end; width: auto; }
   .sidebar-social a { flex: 0 0 auto; font-size: 0; line-height: 0; }
@@ -341,6 +358,8 @@ a:hover { text-decoration: underline; }
   .hero-tech { grid-column: 1; grid-row: 2; order: 0; justify-content: flex-start; gap: 0.5rem; margin: 0.4rem 0 0; }
   .hero-bubble { grid-column: 2; grid-row: 1; min-height: 60px; margin-top: 0; align-self: center; padding: 0.5rem 0.8rem; display: flex; align-items: center; }
   .cards { grid-template-columns: 1fr; }
+  .booking-facts { flex-basis: 100%; display: grid; grid-template-columns: max-content 1fr; column-gap: 1.25rem; row-gap: 0.4rem; align-items: baseline; }
+  .booking-facts dd { margin: 0; }
   .certs li { flex-direction: column; gap: 0; }
 }
 
