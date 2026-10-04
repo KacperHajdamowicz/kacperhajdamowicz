@@ -73,6 +73,7 @@ a:hover { text-decoration: underline; }
   background: var(--accent); color: var(--on-accent);
 }
 .skip-link:focus { top: 1rem; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* Sidebar: fixed on the left, the page scrolls past it.
    The social links and the note sit at the bottom (margin-top: auto). */
@@ -127,6 +128,7 @@ a:hover { text-decoration: underline; }
    certificates and CV skills. --area-icon is set per row below; rows outside
    the four areas get the neutral clipboard. */
 .timeline dt::after,
+.sheet-stats dt::before,
 .certs li > span:first-child::before,
 .cv-certs .item > span:first-child::before,
 .skills b::before {
@@ -180,7 +182,7 @@ a:hover { text-decoration: underline; }
 .button.small { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
 
 /* Landing: hero with timeline and photo */
-.hero { display: grid; grid-template-columns: 1fr 250px; gap: 2.5rem; align-items: start; }
+.hero { display: grid; grid-template-columns: 1fr 290px; gap: 2.5rem; align-items: start; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
 
 .timeline-title { font-size: 1.1rem; color: var(--text-muted); margin: 1.5rem 0 0.75rem; }
@@ -208,28 +210,47 @@ a:hover { text-decoration: underline; }
 .timeline dt:nth-of-type(4) { --area-icon: url("icons/area/azure.svg"); }
 .timeline dt:nth-of-type(5) { --area-icon: url("icons/area/ai.svg"); }
 
-.hero-figure { margin: 0; text-align: center; }
-.hero-tech {
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 0.25rem;
-  margin: 0.9rem 0.35rem 0;
-}
-.hero-image {
-  display: block;
-  width: 250px; height: 250px;
-  object-fit: cover;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--bg-card);
-}
-.hero-bubble {
-  margin-top: 1rem;
-  padding: 0.6rem 0.9rem;
+/* Character sheet: the photo pixelated to 64x64 (ffmpeg, see CLAUDE.md)
+   and drawn at 4x, name plate, four area stats as segmented bars, the tech
+   icons as the inventory row. */
+.hero-figure {
+  margin: 0;
+  padding: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-card);
-  color: var(--text-muted);
-  font-size: 0.9rem;
+}
+.hero-image { display: block; width: 256px; height: 256px; image-rendering: pixelated; }
+.sheet-name { margin: 0.75rem 0 0; font-size: 1.1rem; font-weight: 700; line-height: 1.2; }
+.sheet-class { display: block; font-size: 0.8rem; font-weight: 400; color: var(--text-muted); }
+.sheet-status { margin: 0.35rem 0 0; font-size: 0.8rem; color: var(--text-muted); }
+/* Stats: area icon, label, then five 12px segments with 3px gaps. --fill is
+   the lit width in accent, the rest stays --border; the top layer paints
+   the gaps in the card colour. */
+.sheet-stats {
+  display: grid; grid-template-columns: 1fr auto; align-items: center;
+  gap: 0.3rem 0.75rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+}
+.sheet-stats dt { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); }
+.sheet-stats dd {
+  margin: 0; width: 72px; height: 12px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 12px, var(--bg-card) 12px 15px),
+    linear-gradient(90deg, var(--accent) 0 var(--fill), var(--border) var(--fill));
+}
+.sheet-stats dt:nth-of-type(1) { --area-icon: url("icons/area/power-platform.svg"); }
+.sheet-stats dt:nth-of-type(2) { --area-icon: url("icons/area/ai.svg"); }
+.sheet-stats dt:nth-of-type(3) { --area-icon: url("icons/area/data.svg"); }
+.sheet-stats dt:nth-of-type(4) { --area-icon: url("icons/area/azure.svg"); }
+.sheet-stats dd:nth-of-type(1) { --fill: 72px; }
+.sheet-stats dd:nth-of-type(2), .sheet-stats dd:nth-of-type(3) { --fill: 57px; }
+.sheet-stats dd:nth-of-type(4) { --fill: 42px; }
+.hero-tech {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 0.25rem;
+  margin: 0.9rem 0 0;
 }
 
 /* Landing: cards and certificates */
@@ -444,10 +465,11 @@ a:hover { text-decoration: underline; }
   .entry-line, .item { flex-direction: column; gap: 0; }
   .post { gap: 0.35rem; }
   .hero { grid-template-columns: 1fr; gap: 1.5rem; }
-  .hero-figure { order: -1; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 0 1rem; text-align: left; }
-  .hero-image { grid-column: 1; grid-row: 1; width: 96px; height: 96px; justify-self: center; }
-  .hero-tech { grid-column: 1; grid-row: 2; order: 0; justify-content: flex-start; gap: 0.5rem; margin: 0.4rem 0 0; }
-  .hero-bubble { grid-column: 2; grid-row: 1; min-height: 60px; margin-top: 0; align-self: center; padding: 0.5rem 0.8rem; display: flex; align-items: center; }
+  .hero-figure { order: -1; }
+  .hero-image { float: left; width: 128px; height: 128px; margin: 0 1rem 0.5rem 0; }
+  .sheet-name { margin-top: 0; }
+  .sheet-stats { clear: left; }
+  .hero-tech { justify-content: flex-start; gap: 0.5rem; }
   .cards { grid-template-columns: 1fr; }
   .booking-facts { flex-basis: 100%; display: grid; grid-template-columns: max-content 1fr; column-gap: 1.25rem; row-gap: 0.4rem; align-items: baseline; }
   .booking-facts dd { margin: 0; }
