@@ -20,18 +20,6 @@
   /* Calendly's own page colour on the free plan (colour params ignored).
      Fills the booking frame below Calendly's content so it reads as one sheet. */
   --bg-sheet: #FFFFFF;
-  /* Pixel accents: one tone per area of work, taken from the brand marks in
-     icons/techno (Power Apps, Copilot, Power BI, Power Automate).
-     Decoration only, never text. */
-  --pp-light: #BB35A4;
-  --ai-light: #73B75D;
-  --data-light: #E6AD10;
-  --azure-light: #4894FE;
-  /* Shape of every area marker: an 8-bit gem, 4x4 cells of 3px with the
-     corners cut, tiled every 5 cells so a row of gems keeps a one-cell gap. Shaded
-     on its bottom and right edge with a see-through layer of --text. */
-  --pixel-gem: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 4'%3E%3Cpath d='M1 0h2v1h1v2H3v1H1V3H0V1h1z'/%3E%3C/svg%3E") 0 0 / 15px 12px repeat-x;
-  --pixel-shade: color-mix(in srgb, var(--text) 35%, transparent);
 
   --font-body: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
 
@@ -135,29 +123,12 @@ a:hover { text-decoration: underline; }
 .sidebar-nav a:hover { text-decoration: none; }
 .sidebar-social a:hover { color: var(--accent-ink); text-decoration: none; }
 .sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: center; }
-/* Above the note: a row of four gems in the brand colours of icons/techno,
-   in the order purple (Power Apps), blue (Power Automate), green (Copilot),
-   yellow (Power BI). The mask cuts the gem shape and the gaps; the first two
-   layers draw the shaded bottom row and right column of each gem. */
-.sidebar-note::before {
-  content: "";
-  display: block;
-  width: 57px; height: 12px;
-  margin: 0 auto 0.75rem;
-  background:
-    linear-gradient(transparent 9px, var(--pixel-shade) 9px),
-    repeating-linear-gradient(90deg, transparent 0 9px, var(--pixel-shade) 9px 12px, transparent 12px 15px),
-    linear-gradient(90deg,
-      var(--pp-light) 0 15px, var(--azure-light) 15px 30px,
-      var(--ai-light) 30px 45px, var(--data-light) 45px);
-  -webkit-mask: var(--pixel-gem);
-  mask: var(--pixel-gem);
-}
 /* Pixel-art area icon (icons/area, 16x16 at 1x) on timeline years,
    certificates and CV skills. --area-icon is set per row below; rows outside
    the four areas get the neutral clipboard. */
 .timeline dt::after,
 .certs li > span:first-child::before,
+.cv-certs .item > span:first-child::before,
 .skills b::before {
   content: "";
   width: 16px; height: 16px;
@@ -299,6 +270,12 @@ a:hover { text-decoration: underline; }
 .certs li:nth-child(1) { --area-icon: url("icons/area/ai.svg"); }
 .certs li:nth-child(2), .certs li:nth-child(4) { --area-icon: url("icons/area/data.svg"); }
 .certs li:nth-child(5) { --area-icon: url("icons/area/azure.svg"); }
+/* The same icons on the certifications in the CV (order of cv/index.html;
+   ITIL and IPMA neutral). Hidden in print. */
+.cv-certs .item > span:first-child::before { display: inline-block; margin-right: 0.5rem; vertical-align: -0.2em; }
+.cv-certs .item:nth-of-type(1) { --area-icon: url("icons/area/ai.svg"); }
+.cv-certs .item:nth-of-type(2), .cv-certs .item:nth-of-type(4) { --area-icon: url("icons/area/data.svg"); }
+.cv-certs .item:nth-of-type(5) { --area-icon: url("icons/area/azure.svg"); }
 
 /* Posts list (blog index and landing) */
 .posts { list-style: none; margin: 0; padding: 0; }
@@ -433,7 +410,7 @@ a:hover { text-decoration: underline; }
     --text-muted: #555555;
     --border: #CCCCCC;
   }
-  .skip-link, .sidebar, .cv-actions, .skills b::before { display: none; }
+  .skip-link, .sidebar, .cv-actions, .skills b::before, .cv-certs .item > span:first-child::before { display: none; }
   body {
     padding-left: 0;
     background: #fff; color: var(--text);
