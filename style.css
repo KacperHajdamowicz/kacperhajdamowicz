@@ -20,6 +20,17 @@
   /* Calendly's own page colour on the free plan (colour params ignored).
      Fills the booking frame below Calendly's content so it reads as one sheet. */
   --bg-sheet: #FFFFFF;
+  /* Pixel accents: one dark and one light tone per area of work, taken from
+     the brand marks in icons/techno (Power Apps, Copilot, Power BI, Power
+     Automate). Decoration only, never text. */
+  --pp-dark: #742774;
+  --pp-light: #BB35A4;
+  --ai-dark: #1F9A8A;
+  --ai-light: #73B75D;
+  --data-dark: #C9870E;
+  --data-light: #E6AD10;
+  --azure-dark: #1B44B1;
+  --azure-light: #4894FE;
 
   --font-body: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
 
@@ -123,6 +134,18 @@ a:hover { text-decoration: underline; }
 .sidebar-nav a:hover { text-decoration: none; }
 .sidebar-social a:hover { color: var(--accent-ink); text-decoration: none; }
 .sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: center; }
+/* The same four colours as a row of pixels above the note, on every page. */
+.sidebar-note::before {
+  content: "";
+  display: block;
+  width: 30px; height: 6px;
+  margin: 0 auto 0.75rem;
+  background: linear-gradient(90deg,
+    var(--pp-dark) 0 6px, transparent 6px 8px,
+    var(--ai-dark) 8px 14px, transparent 14px 16px,
+    var(--data-dark) 16px 22px, transparent 22px 24px,
+    var(--azure-dark) 24px 30px);
+}
 
 /* Layout */
 .main { max-width: var(--content-width); margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
@@ -222,6 +245,25 @@ a:hover { text-decoration: underline; }
 }
 .card h3 { margin-bottom: 0.35rem; }
 .card p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+/* 8-bit sparkle in each card's corner, drawn as box-shadows of a 4px square
+   so it stays on a 4px grid and needs no asset. Colours follow the card
+   order in index.html: Power Platform, AI and agents, Data, Azure and ALM. */
+.card { position: relative; }
+.card::after {
+  content: "";
+  position: absolute; top: 1rem; right: 1.1rem;
+  width: 4px; height: 4px;
+  box-shadow:
+    8px 0 var(--pix-dark),
+    8px 4px var(--pix-light),
+    0 8px var(--pix-dark), 4px 8px var(--pix-light), 12px 8px var(--pix-light), 16px 8px var(--pix-dark),
+    8px 12px var(--pix-light),
+    8px 16px var(--pix-dark);
+}
+.card:nth-child(1) { --pix-dark: var(--pp-dark); --pix-light: var(--pp-light); }
+.card:nth-child(2) { --pix-dark: var(--ai-dark); --pix-light: var(--ai-light); }
+.card:nth-child(3) { --pix-dark: var(--data-dark); --pix-light: var(--data-light); }
+.card:nth-child(4) { --pix-dark: var(--azure-dark); --pix-light: var(--azure-light); }
 
 .certs { list-style: none; margin: 0; padding: 0; }
 .certs li {
