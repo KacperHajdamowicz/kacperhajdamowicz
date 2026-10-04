@@ -249,10 +249,12 @@ a:hover { text-decoration: underline; }
 
 /* Article */
 .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; }
-.article h1 { margin-bottom: 0.25rem; text-align: center; }
+/* Headings stretch edge to edge, last line included; balance keeps the
+   word gaps similar on every line instead of one tight line and one sparse one. */
+.article h1 { margin-bottom: 0.25rem; text-align: justify; text-align-last: justify; }
 .post-meta { color: var(--text-muted); margin-bottom: 2rem; }
 .article h1 + .post-meta { text-align: center; }
-.article h2 { margin-top: 2rem; text-align: center; }
+.article h2 { margin-top: 2rem; text-align: justify; text-align-last: justify; }
 .article { max-width: 65ch; }
 .article p { text-align: justify; hyphens: auto; }
 .article .post-meta { text-align: left; hyphens: manual; }
