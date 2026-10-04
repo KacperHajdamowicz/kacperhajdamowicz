@@ -219,6 +219,20 @@ a:hover { text-decoration: underline; }
   white-space: nowrap;
 }
 .timeline dd { margin: 0; }
+/* A pixel in the column gap after each year, coloured by the area that
+   period was about (order of the rows in index.html). Absolute, so the
+   hero gains no height. */
+.timeline dt { position: relative; }
+.timeline dt::after {
+  content: "";
+  position: absolute; right: -12px; top: 0.6em;
+  width: 6px; height: 6px;
+  background: var(--era);
+}
+.timeline dt:nth-of-type(1), .timeline dt:nth-of-type(2) { --era: var(--data-light); }
+.timeline dt:nth-of-type(3) { --era: var(--pp-light); }
+.timeline dt:nth-of-type(4) { --era: var(--azure-light); }
+.timeline dt:nth-of-type(5) { --era: var(--ai-light); }
 
 .hero-figure { margin: 0; text-align: center; }
 .hero-tech {
@@ -281,6 +295,19 @@ a:hover { text-decoration: underline; }
   border-top: 1px solid var(--border);
 }
 .certs li:first-child { border-top: 0; }
+/* Pixel before each certificate, coloured by its area; ITIL stays neutral.
+   Order follows the list in index.html. */
+.certs li > span:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  margin-right: 0.6rem;
+  vertical-align: 0.15em;
+  background: var(--cert, var(--border));
+}
+.certs li:nth-child(1) { --cert: var(--ai-light); }
+.certs li:nth-child(2), .certs li:nth-child(4) { --cert: var(--data-light); }
+.certs li:nth-child(5) { --cert: var(--azure-light); }
 
 /* Posts list (blog index and landing) */
 .posts { list-style: none; margin: 0; padding: 0; }
