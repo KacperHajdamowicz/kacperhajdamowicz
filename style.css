@@ -20,16 +20,12 @@
   /* Calendly's own page colour on the free plan (colour params ignored).
      Fills the booking frame below Calendly's content so it reads as one sheet. */
   --bg-sheet: #FFFFFF;
-  /* Pixel accents: one dark and one light tone per area of work, taken from
-     the brand marks in icons/techno (Power Apps, Copilot, Power BI, Power
-     Automate). Decoration only, never text. */
-  --pp-dark: #742774;
+  /* Pixel accents: one tone per area of work, taken from the brand marks in
+     icons/techno (Power Apps, Copilot, Power BI, Power Automate).
+     Decoration only, never text. */
   --pp-light: #BB35A4;
-  --ai-dark: #1F9A8A;
   --ai-light: #73B75D;
-  --data-dark: #C9870E;
   --data-light: #E6AD10;
-  --azure-dark: #1B44B1;
   --azure-light: #4894FE;
   /* Shape of every area marker: an 8-bit gem, 4x4 cells of 3px with the
      corners cut, tiled every 5 cells so a row of gems keeps a one-cell gap. Shaded
@@ -277,25 +273,20 @@ a:hover { text-decoration: underline; }
 }
 .card h3 { margin-bottom: 0.35rem; }
 .card p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
-/* 8-bit sparkle in each card's corner, drawn as box-shadows of a 4px square
-   so it stays on a 4px grid and needs no asset. Colours follow the card
-   order in index.html: Power Platform, AI and agents, Data, Azure and ALM. */
-.card { position: relative; }
-.card::after {
+/* Pixel-art category icon (icons/area, 16x16 drawn at 2x) floated in each
+   card's top-right corner so the text wraps around it. Order follows the
+   cards in index.html: Power Platform, AI and agents, Data, Azure and ALM. */
+.card::before {
   content: "";
-  position: absolute; top: 1rem; right: 1.1rem;
-  width: 4px; height: 4px;
-  box-shadow:
-    8px 0 var(--pix-dark),
-    8px 4px var(--pix-light),
-    0 8px var(--pix-dark), 4px 8px var(--pix-light), 12px 8px var(--pix-light), 16px 8px var(--pix-dark),
-    8px 12px var(--pix-light),
-    8px 16px var(--pix-dark);
+  float: right;
+  width: 32px; height: 32px;
+  margin: 0 0 0.25rem 0.75rem;
+  background: var(--area-icon) center / 32px 32px no-repeat;
 }
-.card:nth-child(1) { --pix-dark: var(--pp-dark); --pix-light: var(--pp-light); }
-.card:nth-child(2) { --pix-dark: var(--ai-dark); --pix-light: var(--ai-light); }
-.card:nth-child(3) { --pix-dark: var(--data-dark); --pix-light: var(--data-light); }
-.card:nth-child(4) { --pix-dark: var(--azure-dark); --pix-light: var(--azure-light); }
+.card:nth-child(1) { --area-icon: url("icons/area/power-platform.svg"); }
+.card:nth-child(2) { --area-icon: url("icons/area/ai.svg"); }
+.card:nth-child(3) { --area-icon: url("icons/area/data.svg"); }
+.card:nth-child(4) { --area-icon: url("icons/area/azure.svg"); }
 
 .certs { list-style: none; margin: 0; padding: 0; }
 .certs li {
