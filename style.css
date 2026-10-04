@@ -58,6 +58,17 @@ h1, h2, h3 {
 }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
+/* Section headings sit on a pixel-art parchment scroll (icons/scroll.svg,
+   30x20 drawn at 2x) via a 9-slice border-image: the roll caps are the
+   corners, the roll body and the paper outline are the stretched edges,
+   `fill` paints the parchment behind the text. Shrink-to-fit so the scroll
+   hugs the title. `.scroll` puts the same scroll on a page title. */
+h2, .scroll {
+  display: inline-block;
+  border-style: solid; border-width: 12px 20px; border-color: transparent;
+  border-image: url("icons/scroll.svg") 6 10 fill stretch;
+  padding: 0 0.4rem;
+}
 h3 { font-size: 1.1rem; }
 p { margin: 0 0 1rem; }
 p, dd, .post-desc { text-wrap: pretty; }
@@ -85,6 +96,10 @@ a:hover { text-decoration: underline; }
   overflow-y: auto;
   background: var(--bg);
   border-right: 1px solid var(--border);
+  /* Alternative edge kept for later: a pixel-art chain (icons/chain.svg,
+     8x32 drawn at 2x) in place of the rule. Swap the two lines above for:
+     background: url("icons/chain.svg") right top / 16px 64px repeat-y, var(--bg);
+     and drop border-right. The mobile block below already resets it. */
 }
 .sidebar-nav { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1.5rem; }
 /* shrink to the label so the marker stripe hugs the word, not the column */
@@ -299,15 +314,20 @@ a:hover { text-decoration: underline; }
 .cv-certs .item:nth-of-type(5) { --area-icon: url("icons/area/azure.svg"); }
 
 /* Posts list (blog index and landing) */
-.posts { list-style: none; margin: 0; padding: 0; }
+/* Each post sits on a torn pixel-art sheet (icons/paper.svg, 32x32 drawn at
+   2x) via a 9-slice border-image; the ragged edges repeat (`round`), `fill`
+   paints the parchment behind the text. The icon is the post's area
+   (icons/area), written into the <img> since the list grows. */
+.posts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
 .post {
   display: flex; flex-direction: column; gap: 0.35rem;
-  margin-inline: -0.625rem;
-  padding: 0.9rem 0.625rem;
-  border-radius: var(--radius);
+  padding: 0.3rem 0.6rem;
+  border-style: solid; border-width: 16px; border-color: transparent;
+  border-image: url("icons/paper.svg") 8 fill round;
   color: var(--text);
 }
-.post:hover { background: var(--bg-card); text-decoration: none; }
+.post:hover { text-decoration: none; }
+.post:hover .post-top > span { text-decoration: underline; }
 .post-top {
   display: flex; align-items: baseline; gap: 1.25rem;
 }
@@ -380,8 +400,6 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent-ink);
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 0.3rem;
   margin: 0 0 0.75rem;
 }
 .cv h3, .cv h4 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; margin: 0; }
@@ -441,6 +459,9 @@ a:hover { text-decoration: underline; }
   }
   .main { max-width: none; padding: 0; }
   .cv-contact a { text-decoration: none; }
+  /* No scroll on paper: back to the plain accent rule under CV headings. */
+  h2 { display: block; border: 0; border-image: none; padding: 0; }
+  .cv h2 { border-bottom: 2px solid var(--accent); padding-bottom: 0.3rem; }
 }
 
 /* Mobile */
@@ -452,6 +473,7 @@ a:hover { text-decoration: underline; }
     flex-direction: column; flex-wrap: nowrap; align-items: stretch;
     gap: 0.35rem;
     padding: 0.75rem 0.6rem;
+    background: var(--bg);
     border-right: 0; border-bottom: 1px solid var(--border);
   }
   .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: 0; align-items: center; width: auto; }
@@ -463,7 +485,10 @@ a:hover { text-decoration: underline; }
   .skip-link { left: 1rem; }
   .main { padding: 1.5rem 1rem 2.5rem; }
   .entry-line, .item { flex-direction: column; gap: 0; }
-  .post { gap: 0.35rem; }
+  .post { gap: 0.35rem; padding-inline: 0.35rem; }
+  /* the card is too narrow for date and title side by side: title under the date */
+  .post-top { flex-wrap: wrap; gap: 0.2rem 0.75rem; }
+  .post-top > span { flex-basis: 100%; }
   .hero { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero-figure { order: -1; }
   .hero-image { float: left; width: 128px; height: 128px; margin: 0 1rem 0.5rem 0; }
