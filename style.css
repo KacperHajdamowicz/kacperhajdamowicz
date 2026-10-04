@@ -134,17 +134,26 @@ a:hover { text-decoration: underline; }
 .sidebar-nav a:hover { text-decoration: none; }
 .sidebar-social a:hover { color: var(--accent-ink); text-decoration: none; }
 .sidebar-note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--text-muted); text-align: center; }
-/* The same four colours as a row of pixels above the note, on every page. */
+/* Above the note: a pixel-art terminal (CC0, see README) sitting on a row of
+   four pixels in the brand colours of icons/techno, in the order purple
+   (Power Apps), blue (Power Automate), green (Copilot), yellow (Power BI).
+   The GIF animates on its own and CSS cannot pause it, so reduced motion
+   drops the terminal and keeps only the row. */
+.sidebar-note {
+  --pixel-row: linear-gradient(90deg,
+    var(--pp-light) 0 6px, transparent 6px 8px,
+    var(--azure-light) 8px 14px, transparent 14px 16px,
+    var(--ai-light) 16px 22px, transparent 22px 24px,
+    var(--data-light) 24px 30px);
+}
 .sidebar-note::before {
   content: "";
   display: block;
-  width: 30px; height: 6px;
+  width: 64px; height: 76px;
   margin: 0 auto 0.75rem;
-  background: linear-gradient(90deg,
-    var(--pp-dark) 0 6px, transparent 6px 8px,
-    var(--ai-dark) 8px 14px, transparent 14px 16px,
-    var(--data-dark) 16px 22px, transparent 22px 24px,
-    var(--azure-dark) 24px 30px);
+  background:
+    url("icons/terminal.gif") center top / 64px 64px no-repeat,
+    var(--pixel-row) center bottom / 30px 6px no-repeat;
 }
 
 /* Layout */
@@ -447,4 +456,8 @@ a:hover { text-decoration: underline; }
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) { animation: none !important; }
+  .sidebar-note::before {
+    height: 6px;
+    background: var(--pixel-row) center / 30px 6px no-repeat;
+  }
 }
