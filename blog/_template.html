@@ -3,9 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 1. Title and description: shown in the browser tab and in search results. -->
+  <!-- 1. Title and description: shown in the browser tab and in search results. Fill og:title, og:description and og:url too. -->
   <title>POST TITLE | Kacper Hajdamowicz</title>
   <meta name="description" content="ONE-SENTENCE SUMMARY">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="POST TITLE">
+  <meta property="og:description" content="ONE-SENTENCE SUMMARY">
+  <meta property="og:url" content="https://kacperhajdamowicz.github.io/kacperhajdamowicz/blog/YYYY-MM-slug.html">
+  <meta property="og:image" content="https://kacperhajdamowicz.github.io/kacperhajdamowicz/icon-512.png">
   <link rel="icon" href="../favicon.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +39,9 @@
 <main class="main" id="main">
   <a class="back-link" href="./">Back to the blog</a>
   <article class="article">
-    <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the month and year. -->
+    <!-- 2. Title and date. datetime is YYYY-MM-DD, the visible text is day, month and year (e.g. 25 Sep 2026). -->
     <h1>POST TITLE</h1>
-    <p class="post-meta"><time datetime="2026-09">September 2026</time></p>
+    <p class="post-meta"><time datetime="YYYY-MM-DD">D Mon YYYY</time></p>
 
     <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
     <p>First paragraph.</p>
