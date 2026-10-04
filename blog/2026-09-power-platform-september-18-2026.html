@@ -41,7 +41,7 @@
   <article class="article">
     <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the month and year. -->
     <h1>Power Platform: September 18, 2026</h1>
-    <p class="post-meta"><time datetime="2026-09-18">18 Sep 2026</time></p>
+    <p class="post-meta"><img class="pix" src="../icons/code.svg" alt="" width="16" height="16"> <time datetime="2026-09-18">18 Sep 2026</time></p>
 
     <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
     <p>Tooling week. PAC CLI gained more than 200 commands generated straight from the Power Platform API, Foundry got a one-command dev setup, and the Copilot Studio team wrote up how they moved their cache to Azure Managed Redis. Matthew Devaney also published a multi-agent pattern for Copilot Studio.</p>
@@ -56,6 +56,28 @@
     
     <h2>What Copilot Studio learned moving to Azure Managed Redis</h2>
     <p>The Copilot Studio team wrote up their move from Azure Cache for Redis Classic to Azure Managed Redis. They cut redundant cache writes and put an in-memory L1 check in front of distributed lookups, and cache server load went from peaks of 95 percent to 15 to 40 percent. Worth reading if you run anything chatty against a shared cache, agents or connectors included.</p>
+    <figure class="article-figure diagram">
+      <svg viewBox="0 0 352 180" width="352" height="180" role="img" aria-labelledby="fig-cache">
+        <title id="fig-cache">Copilot Studio checks an in-memory L1 cache first; only misses reach Azure Managed Redis.</title>
+        <defs>
+          <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0L8 4L0 8z"/>
+          </marker>
+        </defs>
+        <rect class="box" x="8" y="8" width="180" height="36" rx="6"/>
+        <text class="label" x="98" y="30" text-anchor="middle">Copilot Studio</text>
+        <path class="line" d="M98 44V70" marker-end="url(#arrow)"/>
+        <rect class="box-accent" x="8" y="72" width="180" height="36" rx="6"/>
+        <text class="on-accent" x="98" y="94" text-anchor="middle">L1 in-memory</text>
+        <text class="muted" x="200" y="94">hit: answered here</text>
+        <path class="line" d="M98 108V134" marker-end="url(#arrow)"/>
+        <rect class="box" x="8" y="136" width="180" height="36" rx="6"/>
+        <text class="label" x="98" y="158" text-anchor="middle">Managed Redis</text>
+        <text class="muted" x="200" y="152">misses only</text>
+        <text class="muted" x="200" y="168">load 95% to 15–40%</text>
+      </svg>
+      <figcaption>An in-memory check in front of the distributed cache; Redis only sees misses.</figcaption>
+    </figure>
     <p class="post-meta"><em><a href="https://devblogs.microsoft.com/powerplatform/azure-managed-redis-migration/">https://devblogs.microsoft.com/powerplatform/azure-managed-redis-migration/</a></em></p>
     
     <h2>Multi-agent workflows in Copilot Studio</h2>

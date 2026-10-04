@@ -232,6 +232,7 @@ a:hover { text-decoration: underline; }
 .post-top {
   display: flex; align-items: baseline; gap: 1.25rem;
 }
+.post-top .pix { flex: 0 0 auto; align-self: flex-start; margin-top: 0.2rem; }
 .post-top time {
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -259,6 +260,24 @@ a:hover { text-decoration: underline; }
   border-radius: 6px;
   background: var(--bg-card);
 }
+
+/* Article figures: inline SVG diagrams drawn at phone width (viewBox 352),
+   shown 1:1 on desktop and scaled down slightly on small screens. */
+.article-figure { margin: 1.25rem 0 1.75rem; max-width: 22rem; }
+.article-figure svg { display: block; width: 100%; height: auto; font-family: inherit; font-size: 12px; }
+.article-figure figcaption {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+.diagram .box { fill: var(--bg-card); stroke: var(--border); }
+.diagram .box-accent { fill: var(--accent); stroke: var(--accent-ink); }
+.diagram .line { fill: none; stroke: var(--text-muted); stroke-width: 1.5; }
+.diagram .label { fill: var(--text); }
+.diagram .on-accent { fill: var(--on-accent); }
+.diagram .muted { fill: var(--text-muted); font-size: 11px; }
+.diagram marker path { fill: var(--text-muted); }
 
 /* CV: same rules as the printed CV, the accent is a line, not a fill */
 .cv-header { margin-bottom: 1.5rem; }

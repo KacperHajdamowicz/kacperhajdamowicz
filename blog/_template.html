@@ -39,11 +39,14 @@
 <main class="main" id="main">
   <a class="back-link" href="./">Back to the blog</a>
   <article class="article">
-    <!-- 2. Title and date. datetime is YYYY-MM-DD, the visible text is day, month and year (e.g. 25 Sep 2026). -->
+    <!-- 2. Title, icon and date. Pick an icon from icons/ (pixelarticons) and use the same one in the post lists.
+         datetime is YYYY-MM-DD, the visible text is day, month and year (e.g. 25 Sep 2026). -->
     <h1>POST TITLE</h1>
-    <p class="post-meta"><time datetime="YYYY-MM-DD">D Mon YYYY</time></p>
+    <p class="post-meta"><img class="pix" src="../icons/article.svg" alt="" width="16" height="16"> <time datetime="YYYY-MM-DD">D Mon YYYY</time></p>
 
-    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
+    <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">.
+         Optional diagram: <figure class="article-figure diagram"> with an inline <svg viewBox="0 0 352 H"> drawn at phone width,
+         classes box / box-accent / line / label / on-accent / muted, one accent element, then <figcaption>. See an existing post. -->
     <p>First paragraph.</p>
   </article>
 </main>

@@ -41,13 +41,39 @@
   <article class="article">
     <!-- 2. Title and date. datetime is YYYY-MM, the visible text is the month and year. -->
     <h1>Power Platform Updates (September 18 - 24, 2026)</h1>
-    <p class="post-meta"><time datetime="2026-09-25">25 Sep 2026</time></p>
+    <p class="post-meta"><img class="pix" src="../icons/shield.svg" alt="" width="16" height="16"> <time datetime="2026-09-25">25 Sep 2026</time></p>
 
     <!-- 3. Body: paragraphs in <p>, subheadings in <h2>, links to other posts relative: <a href="./other-post.html">. -->
     <p>Most of this week is Power Pages and Microsoft Foundry. Power Pages gets free managed certificates for custom domains, and Modern List leaves preview. Foundry gets egress rules for hosted agents, and routines go GA. All of it is available now, preview or GA, so you can try each item in a tenant this week.</p>
     
     <h2>Egress controls for Microsoft Foundry agents</h2>
     <p>Egress controls for hosted agents are in preview. You write outbound rules in an RAI policy and attach it to the agent container, and the platform blocks requests to domains outside the list. Until now the only place to stop an agent tool from calling an unapproved host was the tool's own code. An audit mode lets you run permitted and denied probes against the rules before you switch to blocking.</p>
+    <figure class="article-figure diagram">
+      <svg viewBox="0 0 352 226" width="352" height="226" role="img" aria-labelledby="fig-egress">
+        <title id="fig-egress">A hosted agent's outbound calls pass an egress policy: approved hosts go through, anything else is blocked.</title>
+        <defs>
+          <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0L8 4L0 8z"/>
+          </marker>
+        </defs>
+        <rect class="box" x="86" y="8" width="180" height="36" rx="6"/>
+        <text class="label" x="176" y="30" text-anchor="middle">Hosted agent</text>
+        <path class="line" d="M176 44V70" marker-end="url(#arrow)"/>
+        <rect class="box-accent" x="86" y="72" width="180" height="48" rx="6"/>
+        <text class="on-accent" x="176" y="92" text-anchor="middle">Egress policy</text>
+        <text class="on-accent" x="176" y="110" text-anchor="middle" font-size="11">allowlist</text>
+        <path class="line" d="M176 120V138H88V162" marker-end="url(#arrow)"/>
+        <path class="line" d="M176 120V138H264V148"/>
+        <path class="line" d="M258 150L270 162M270 150L258 162"/>
+        <rect class="box" x="8" y="166" width="160" height="36" rx="6"/>
+        <text class="label" x="88" y="188" text-anchor="middle">approved host</text>
+        <rect class="box" x="184" y="166" width="160" height="36" rx="6"/>
+        <text class="label" x="264" y="188" text-anchor="middle">anything else</text>
+        <text class="muted" x="88" y="220" text-anchor="middle">allowed</text>
+        <text class="muted" x="264" y="220" text-anchor="middle">blocked</text>
+      </svg>
+      <figcaption>Outbound calls pass an allowlist attached to the agent container; audit mode logs before it blocks.</figcaption>
+    </figure>
     <p class="post-meta"><em><a href="https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/">https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/</a></em></p>
     
     <h2>Microsoft Foundry routines reach general availability</h2>
